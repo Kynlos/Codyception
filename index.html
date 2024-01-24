@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        window.addEventListener('load', function() {
+            applyDarkModePreference();
+            populateDropdown();
+        });
+        </script>
+<head>
+        <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT7YJ8S06W"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FT7YJ8S06W');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1530425128037576"
+    crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-1530425128037576">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codyception - Cody Command Creator by Kynlo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+            color: #333;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .context-option.selected {
+            background-color: #5cb85c;
+            color: white;
+            border-color: #5cb85c;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container.dark-mode {
+            background: #333;
+            color: #fff;
+        }
+
+        h1 {
+            font-weight: 600;
+            color: #5cb85c;
+        }
+
+        input[type="text"],
+        button,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            color: inherit;
+            background-color: inherit;
+        }
+
+        button {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        .context-option,
+        #premadeCommands {
+            color: #333; 
+            background-color: inherit;
+        }
+
+        .dark-mode .context-option,
+        .dark-mode #premadeCommands {
+            color: white; 
+            background-color: #333; 
+        }
+
+        .context-option {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .context-option.selected {
+            background-color: #5cb85c;
+            color: white;
+            border-color: #5cb85c;
+        }
+
+        #darkModeToggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+
+
+
+            .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px; /* Adjust width as needed */
+        height: 100%;
+        background-color: #333; /* Match your dark mode color */
+        color: #fff;
+        transition: transform 0.3s ease;
+        transform: translateX(-100%);
+        z-index: 1000; /* Ensure it's above other content */
+    }
+
+    .sidebar-nav {
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px; /* Adjust padding as needed */
+    }
+
+    .sidebar-link {
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+
+    .sidebar-link:hover {
+        background-color: #5cb85c; /* Match your button hover color */
+    }
+
+    .sidebar-link i {
+        margin-right: 8px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .sidebar {
+            width: 100%;
+            transform: translateY(-100%);
+        }
+    }
+
+    /* Add a class to body when sidebar is open */
+    .body-sidebar-open .sidebar {
+        transform: translateX(0);
+    }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <nav class="sidebar-nav">
+            <a href="https://discordapp.com/" target="_blank" class="sidebar-link"><i class="fab fa-discord"></i>Discord</a>
+            <a href="https://github.com/sourcegraph/cody/" target="_blank" class="sidebar-link"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.sourcegraph.com/" target="_blank" class="sidebar-link"><i class="fas fa-globe"></i> Sourcegraph</a>
+            <a href="https://docs.sourcegraph.com/" target="_blank" class="sidebar-link"><i class="fas fa-book"></i>  Docs</a>
+            <a href="https://sourcegraph.com/blog" target="_blank" class="sidebar-link"><i class="fas fa-blog"></i> Blog</a>
+
+        </nav>
+    </div>
+
+
+    <div class="container">
+        <div class="hamburger-menu" onclick="toggleSidebar()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <h1><i class="fa fa-code"></i> Codyception by Kynlo</h1>
+                <div id="darkModeToggle" onclick="toggleDarkMode()">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+        <div>
+            <label for="commandName">Command Name:</label>
+            <input type="text" id="commandName" placeholder="Enter command name (no spaces)" title="Enter a unique name for the command without spaces. Use hyphens if needed." required>
+        </div>
+        <div>
+            <label for="commandPrompt">Command Prompt (Prompt to send to Cody.):</label>
+            <small style="display: block; margin-bottom: 10px;">Include as much detail as you can for the task you want to complete</small>
+            <input type="text" id="commandPrompt" placeholder="Enter command prompt" title="A set of questions with instructions for Cody to follow when answering questions." required>
+        </div>
+        <div class="checkbox-group">
+            <label>Command Context (Click an item to select):</label>
+            <div id="contextOptions" class="context-options">
+                <div class="context-option" data-value="codebase" title="Include results from embeddings/keyword code search as snippets."><i class="fa fa-database"></i> codebase</div>
+                <div class="context-option" data-value="selection" title="Include currently selected code from editor."><i class="fa fa-i-cursor"></i> selection</div>
+                <div class="context-option" data-value="openTabs" title="Include code snippets from a list of open files in your current editor."><i class="fa fa-folder-open"></i> openTabs</div>
+                <div class="context-option" data-value="currentDir" title="Include code snippets from first n files in current directory."><i class="fa fa-folder"></i> currentDir</div>
+                <div class="context-option" data-value="currentFile" title="Include code snippets from current file."><i class="fa fa-file-code"></i> currentFile</div>
+                <div class="context-option" data-value="command" title="Run terminal command locally and include output as context."><i class="fa fa-terminal"></i> command</div>
+                <div class="context-option" data-value="none" title="If true, overrides all other context settings."><i class="fa fa-ban"></i> none</div>
+            </div>
+        </div>
+        <div>
+            <label for="slashCommand">Slash Command:</label>
+            <input type="text" id="slashCommand" placeholder="Enter slash command (optional)" title="A single keyword for Cody to associate the command with during chat sessions, e.g. /reset">
+        </div>
+        <div>
+            <label for="commandNote">Command Note:</label>
+            <input type="text" id="commandNote" placeholder="Enter command note (optional)" title="Optional additional note.">
+        </div>
+
+        <div>
+            <label for="premadeCommands">Select Pre-made Command (Made By Kynlo):</label>
+            <select id="premadeCommands" onchange="fillForm()">
+                <option value="" disabled selected>Select a pre-made command</option>
+            </select>
+        </div>
+        
+
+        <button id="createCommand" title="Click to create the command and prompt to save as a JSON file."><i class="fa fa-plus-circle"></i> Create Command</button>
+
+        <button onclick="openVSCodeToExtension('sourcegraph.cody-ai')" title="Open Cody AI in VSCode" style="display: flex; align-items: center; justify-content: center;">
+            <svg width="24" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="mdi-icon Icon-module__icon-inline NavItem-module__icon" role="img" aria-hidden="true">
+                <path d="M13.9088 4C14.756 4 15.4429 4.69836 15.4429 5.55983V8.33286C15.4429 9.19433 14.756 9.89269 13.9088 9.89269C13.0615 9.89269 12.3747 9.19433 12.3747 8.33286V5.55983C12.3747 4.69836 13.0615 4 13.9088 4Z" fill="#ffffff"></path>
+                <path d="M4.19287 7.63942C4.19287 6.77795 4.87971 6.07959 5.72696 6.07959H8.45423C9.30148 6.07959 9.98832 6.77795 9.98832 7.63942C9.98832 8.50089 9.30148 9.19925 8.45423 9.19925H5.72696C4.87971 9.19925 4.19287 8.50089 4.19287 7.63942Z" fill="#ffffff"></path>
+                <path d="M17.5756 12.1801C18.1216 12.7075 18.1437 13.5851 17.625 14.1403L17.1423 14.6569C13.3654 18.6994 6.99777 18.5987 3.34628 14.4387C2.84481 13.8674 2.89377 12.9909 3.45565 12.481C4.01752 11.9711 4.87954 12.0209 5.38102 12.5922C7.97062 15.5424 12.4865 15.6139 15.1651 12.747L15.6477 12.2304C16.1664 11.6752 17.0296 11.6527 17.5756 12.1801Z" fill="#ffffff"></path>
+            </svg>
+            <span style="margin-left: 8px;">Open Cody AI Extension in VSCode</span>
+        </button>
+
+
+        <div>
+            <button id="instructionsButton" title="Click to view the instructions for adding custom commands.">
+                <i class="fa fa-question-circle"></i> Instructions For Adding Custom Commands
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.body.classList.toggle('body-sidebar-open');
+        }
+
+        const contextOptions = document.getElementById('contextOptions');
+        let contextOptionElements = Array.from(contextOptions.getElementsByClassName('context-option'));
+        let selectedContexts = [];
+    
+        contextOptions.addEventListener('click', function (event) {
+            const option = event.target.closest('.context-option');
+            if (option) {
+                const value = option.getAttribute('data-value');
+                option.classList.toggle('selected');
+                if (option.classList.contains('selected')) {
+                    selectedContexts.push(value);
+                } else {
+                    selectedContexts = selectedContexts.filter(context => context !== value);
+                }
+            }
+        });
+    
+        document.getElementById('createCommand').addEventListener('click', function () {
+            const commandName = document.getElementById('commandName').value.trim();
+            const commandPrompt = document.getElementById('commandPrompt').value.trim();
+            const slashCommand = document.getElementById('slashCommand').value.trim();
+            const commandNote = document.getElementById('commandNote').value.trim();
+    
+            if (!commandName || !commandPrompt) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+    
+            const commandData = {
+                command_name: commandName,
+                prompt: commandPrompt,
+                context: selectedContexts,
+                slashCommand: slashCommand,
+                note: commandNote
+            };
+    
+            saveToFile(commandData);
+        });
+    
+        function saveToFile(commandData) {
+            const jsonString = JSON.stringify(commandData, null, 2);
+            const blob = new Blob([jsonString], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${commandData.command_name}.json`;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(() => {
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            }, 100);
+        }
+    
+        document.getElementById('instructionsButton').addEventListener('click', function () {
+            window.open('https://sourcegraph.com/notebooks/Tm90ZWJvb2s6MzA1NQ==#the-codyjson-file-b88cc06d-c547-419f-ab15-23073a5f93ad', '_blank');
+        });
+    
+        function openVSCodeToExtension(extensionId) {
+            const vscodeUrl = `vscode:extension/${extensionId}`;
+            window.open(vscodeUrl, '_blank');
+        }
+    
+        function populateDropdown() {
+            const dropdown = document.getElementById('premadeCommands');
+    
+            fetch('Cody.json')
+                .then(response => response.json())
+                .then(data => {
+                    Object.keys(data.commands).forEach(commandName => {
+                        const option = document.createElement('option');
+                        option.value = commandName;
+                        option.text = commandName;
+                        dropdown.add(option);
+                    });
+                })
+                .catch(error => console.error('Error fetching Cody.json:', error));
+        }
+    
+        window.addEventListener('load', populateDropdown);
+    
+        function fillForm() {
+            const selectedCommand = document.getElementById('premadeCommands').value;
+    
+            fetch('Cody.json')
+                .then(response => response.json())
+                .then(data => {
+                    const selectedCommandData = data.commands[selectedCommand];
+    
+                    document.getElementById('commandName').value = selectedCommand;
+                    document.getElementById('commandPrompt').value = selectedCommandData.prompt;
+    
+                    contextOptionElements.forEach(option => option.classList.remove('selected'));
+    
+                    selectedContexts = [];
+                    Object.keys(selectedCommandData.context).forEach(contextValue => {
+                        const option = contextOptionElements.find(option => option.getAttribute('data-value') === contextValue);
+                        if (option) {
+                            option.classList.add('selected');
+                            selectedContexts.push(contextValue);
+                        }
+                    });
+    
+                    
+                })
+                .catch(error => console.error('Error fetching Cody.json:', error));
+        }
+        function toggleDarkMode() {
+        const body = document.body;
+        const container = document.querySelector('.container');
+        body.classList.toggle('dark-mode');
+        container.classList.toggle('dark-mode');
+
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    }
+
+    function applyDarkModePreference() {
+        const body = document.body;
+        const container = document.querySelector('.container');
+        const darkModePreference = localStorage.getItem('darkMode');
+
+        if (darkModePreference === 'enabled') {
+            body.classList.add('dark-mode');
+            container.classList.add('dark-mode');
+        }
+    }
+
+    window.addEventListener('load', function() {
+        applyDarkModePreference();
+        populateDropdown();
+    });
+</script>
+    
+</body>
+
+</html>
