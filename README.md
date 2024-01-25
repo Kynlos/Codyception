@@ -20,7 +20,7 @@ cd codyception
 # Open the index.html file in your default web browser (see below for info on how to run this locally and not on a web-server)
 ```
 
-**Note:** You will need to run a basic web-server if you are running this locally.  To do this, create a new file called cody-srv.py (this needs to be in the same folder as your index.html file), and paste the following code:
+**Note:** You will need to run a basic web-server if you are running this locally.  To do this, create a new file called `cody-srv.py` (this needs to be in the same folder as your `index.html` file), and paste the following code:
 
 ```python
 import http.server
@@ -38,7 +38,7 @@ with socketserver.TCPServer(("", port), handler) as httpd:
     except KeyboardInterrupt:
         print("\nServer stopped by user.")
 ```
-Open a terminal window and navigate to the folder with this script, type `python cody-srv.py` and then navigate to 127.0.0.1:8000 - This will now give you access to all the javascript within the site.
+Open a terminal window and navigate to the folder with this script, type `python cody-srv.py` and then navigate to `127.0.0.1:8000` - This will now give you access to all the javascript within the site.
 
 
 ## Usage
