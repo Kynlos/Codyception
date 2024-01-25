@@ -239,3 +239,40 @@
         document.getElementById('copyJsonButton').addEventListener('click', function() {
             copyJsonToClipboard();
         });
+
+
+
+        
+
+        // Function to fetch and display GitHub updates
+        function fetchGitHubUpdates() {
+            const repoUrl = 'https://api.github.com/repos/Kynlos/Codyception/commits'; 
+            const updatesBanner = document.getElementById('githubUpdatesContent');
+            const repoLink = 'https://github.com/Kynlos/Codyception'; 
+        
+            fetch(repoUrl)
+            .then(response => response.json())
+            .then(commits => {
+                if (commits && commits.length > 0) {
+                const latestCommit = commits[0];
+                const commitMessage = latestCommit.commit.message;
+                const commitAuthor = latestCommit.commit.author.name;
+                const commitDate = new Date(latestCommit.commit.author.date).toLocaleDateString();
+                const commitUrl = latestCommit.html_url; // URL to the specific commit
+        
+                updatesBanner.innerHTML = `Latest update by <a href="${commitUrl}" target="_blank">${commitAuthor}</a> on ${commitDate}: <a href="${repoLink}/commit/${latestCommit.sha}" target="_blank">${commitMessage}</a>`;
+                } else {
+                updatesBanner.innerHTML = 'No recent updates found.';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching GitHub updates:', error);
+                updatesBanner.innerHTML = 'Failed to fetch updates.';
+            });
+        }
+        
+        // Call the function to fetch and display GitHub updates
+        fetchGitHubUpdates();
+  
+
+  

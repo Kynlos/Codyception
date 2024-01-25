@@ -255,3 +255,41 @@
             visibility: visible;
             opacity: 1;
         }
+
+
+        /* Styles for the GitHub Updates Banner */
+        .github-updates-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333; /* Dark background for contrast */
+        color: #fff;
+        z-index: 1002; /* Higher than other elements, but lower than modal */
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        font-size: 0.9rem;
+        }
+
+        .github-updates-content {
+        max-width: 1200px; /* Limit the content width */
+        margin: auto; /* Center the content */
+        padding: 10px; /* Padding for aesthetics */
+        text-align: center; /* Center the text */
+        overflow: hidden; /* Hide overflowing content */
+        white-space: nowrap; /* Keep the text in one line */
+        text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+        }
+
+
+        /* Styles for links within the GitHub Updates Banner */
+        .github-updates-content a {
+            color: #4da6ff; 
+            text-decoration: none; 
+            font-weight: bold;
+        }
+        
+        /* Change the link color on hover for better user interaction */
+        .github-updates-content a:hover {
+            color: #ff8533; 
+            text-decoration: underline; 
+        }
