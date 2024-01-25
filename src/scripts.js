@@ -1,23 +1,27 @@
 
+        // Function to be executed when the window is loaded
         window.addEventListener('load', function() {
-            applyDarkModePreference();
-            populateDropdown();
+            applyDarkModePreference(); // Apply dark mode preference
+            populateDropdown(); // Populate the dropdown menu
         });
-        
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
 
-    gtag('config', 'G-FT7YJ8S06W');
-    
+        // Google Analytics tracking code
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FT7YJ8S06W');
+
+        // Function to toggle the sidebar
         function toggleSidebar() {
             document.body.classList.toggle('body-sidebar-open');
         }
 
+        // Get the context options element
         const contextOptions = document.getElementById('contextOptions');
         let contextOptionElements = Array.from(contextOptions.getElementsByClassName('context-option'));
         let selectedContexts = [];
-    
+
+        // Event listener for context options
         contextOptions.addEventListener('click', function (event) {
             const option = event.target.closest('.context-option');
             if (option) {
@@ -30,18 +34,19 @@
                 }
             }
         });
-    
+
+        // Event listener for create command button
         document.getElementById('createCommand').addEventListener('click', function () {
             const commandName = document.getElementById('commandName').value.trim();
             const commandPrompt = document.getElementById('commandPrompt').value.trim();
             const slashCommand = document.getElementById('slashCommand').value.trim();
             const commandNote = document.getElementById('commandNote').value.trim();
-    
+
             if (!commandName || !commandPrompt) {
                 alert('Please fill in all required fields.');
                 return;
             }
-    
+
             const commandData = {
                 command_name: commandName,
                 prompt: commandPrompt,
@@ -49,10 +54,11 @@
                 slashCommand: slashCommand,
                 note: commandNote
             };
-    
-            saveToFile(commandData);
+
+            saveToFile(commandData); // Save command data to file
         });
-    
+
+        // Function to save command data to file
         function saveToFile(commandData) {
             const jsonString = JSON.stringify(commandData, null, 2);
             const blob = new Blob([jsonString], { type: 'application/json' });
@@ -67,19 +73,22 @@
                 window.URL.revokeObjectURL(url);
             }, 100);
         }
-    
+
+        // Event listener for instructions button
         document.getElementById('instructionsButton').addEventListener('click', function () {
             window.open('https://sourcegraph.com/notebooks/Tm90ZWJvb2s6MzA1NQ==#the-codyjson-file-b88cc06d-c547-419f-ab15-23073a5f93ad', '_blank');
         });
-    
+
+        // Function to open VSCode to extension
         function openVSCodeToExtension(extensionId) {
             const vscodeUrl = `vscode:extension/${extensionId}`;
             window.open(vscodeUrl, '_blank');
         }
-    
+
+        // Function to populate the dropdown menu
         function populateDropdown() {
             const dropdown = document.getElementById('premadeCommands');
-    
+
             fetch('Cody.json')
                 .then(response => response.json())
                 .then(data => {
@@ -92,22 +101,24 @@
                 })
                 .catch(error => console.error('Error fetching Cody.json:', error));
         }
-    
+
+        // Event listener for window load event to populate dropdown menu
         window.addEventListener('load', populateDropdown);
-    
+
+        // Function to fill the form with selected command data
         function fillForm() {
             const selectedCommand = document.getElementById('premadeCommands').value;
-    
+
             fetch('Cody.json')
                 .then(response => response.json())
                 .then(data => {
                     const selectedCommandData = data.commands[selectedCommand];
-    
+
                     document.getElementById('commandName').value = selectedCommand;
                     document.getElementById('commandPrompt').value = selectedCommandData.prompt;
-    
+
                     contextOptionElements.forEach(option => option.classList.remove('selected'));
-    
+
                     selectedContexts = [];
                     Object.keys(selectedCommandData.context).forEach(contextValue => {
                         const option = contextOptionElements.find(option => option.getAttribute('data-value') === contextValue);
@@ -116,110 +127,115 @@
                             selectedContexts.push(contextValue);
                         }
                     });
-    
-                    
                 })
                 .catch(error => console.error('Error fetching Cody.json:', error));
         }
+
+        // Function to toggle dark mode
         function toggleDarkMode() {
-        const body = document.body;
-        const container = document.querySelector('.container');
-        body.classList.toggle('dark-mode');
-        container.classList.toggle('dark-mode');
+            const body = document.body;
+            const container = document.querySelector('.container');
+            body.classList.toggle('dark-mode');
+            container.classList.toggle('dark-mode');
 
-        if (body.classList.contains('dark-mode')) {
-            localStorage.setItem('darkMode', 'enabled');
-        } else {
-            localStorage.setItem('darkMode', 'disabled');
-        }
-    }
-
-    function applyDarkModePreference() {
-        const body = document.body;
-        const container = document.querySelector('.container');
-        const darkModePreference = localStorage.getItem('darkMode');
-
-        if (darkModePreference === 'enabled') {
-            body.classList.add('dark-mode');
-            container.classList.add('dark-mode');
-        }
-    }
-
-    window.addEventListener('load', function() {
-        applyDarkModePreference();
-        populateDropdown();
-    });
-
-
-
-    function constructCommandData() {
-        const commandName = document.getElementById('commandName').value.trim();
-        const commandPrompt = document.getElementById('commandPrompt').value.trim();
-        const slashCommand = document.getElementById('slashCommand').value.trim();
-        const commandNote = document.getElementById('commandNote').value.trim();
-
-        if (!commandName || !commandPrompt) {
-            alert('Please fill in all required fields.');
-            return null;
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
         }
 
-        const commandData = {
-            command_name: commandName,
-            prompt: commandPrompt,
-            context: selectedContexts,
-            slashCommand: slashCommand,
-            note: commandNote
-        };
+        // Function to apply dark mode preference
+        function applyDarkModePreference() {
+            const body = document.body;
+            const container = document.querySelector('.container');
+            const darkModePreference = localStorage.getItem('darkMode');
 
-        return commandData;
-    }
-
-    function showModalWithJson(jsonData) {
-        var modal = document.getElementById('jsonModal');
-        var jsonDisplay = document.getElementById('jsonDisplay');
-        var jsonString = JSON.stringify(jsonData, null, 2);
-
-        jsonDisplay.textContent = jsonString;
-        modal.style.display = "block";
-    }
-
-    document.getElementById('showJsonButton').addEventListener('click', function() {
-        const commandData = constructCommandData();
-        if (commandData) {
-            showModalWithJson(commandData);
+            if (darkModePreference === 'enabled') {
+                body.classList.add('dark-mode');
+                container.classList.add('dark-mode');
+            }
         }
+
+        // Event listener for window load event to apply dark mode preference and populate dropdown menu
+        window.addEventListener('load', function() {
+            applyDarkModePreference();
+            populateDropdown();
         });
-    var modal = document.getElementById('jsonModal');
 
-    var span = document.getElementsByClassName("close")[0];
+        // Function to construct command data
+        function constructCommandData() {
+            const commandName = document.getElementById('commandName').value.trim();
+            const commandPrompt = document.getElementById('commandPrompt').value.trim();
+            const slashCommand = document.getElementById('slashCommand').value.trim();
+            const commandNote = document.getElementById('commandNote').value.trim();
 
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
+            if (!commandName || !commandPrompt) {
+                alert('Please fill in all required fields.');
+                return null;
+            }
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
+            const commandData = {
+                command_name: commandName,
+                prompt: commandPrompt,
+                context: selectedContexts,
+                slashCommand: slashCommand,
+                note: commandNote
+            };
+
+            return commandData;
+        }
+
+        // Function to show modal with JSON data
+        function showModalWithJson(jsonData) {
+            var modal = document.getElementById('jsonModal');
+            var jsonDisplay = document.getElementById('jsonDisplay');
+            var jsonString = JSON.stringify(jsonData, null, 2);
+
+            jsonDisplay.textContent = jsonString;
+            modal.style.display = "block";
+        }
+
+        // Event listener for show JSON button
+        document.getElementById('showJsonButton').addEventListener('click', function() {
+            const commandData = constructCommandData();
+            if (commandData) {
+                showModalWithJson(commandData);
+            }
+        });
+
+        // Close modal when close button is clicked
+        var modal = document.getElementById('jsonModal');
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() {
             modal.style.display = "none";
         }
-    }
 
+        // Close modal when clicked outside the modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
 
-    function copyJsonToClipboard() {
-        var jsonDisplay = document.getElementById('jsonDisplay');
-        var range = document.createRange();
-        range.selectNode(jsonDisplay);
-        window.getSelection().removeAllRanges(); 
-        window.getSelection().addRange(range);
-        document.execCommand('copy');
-        window.getSelection().removeAllRanges(); 
+        // Function to copy JSON to clipboard
+        function copyJsonToClipboard() {
+            var jsonDisplay = document.getElementById('jsonDisplay');
+            var range = document.createRange();
+            range.selectNode(jsonDisplay);
+            window.getSelection().removeAllRanges(); 
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges(); 
 
-        var tooltip = document.getElementById('copyTooltip');
-        tooltip.classList.add('show-tooltip');
-        setTimeout(function() {
-            tooltip.classList.remove('show-tooltip');
-        }, 1200); 
-    }
+            var tooltip = document.getElementById('copyTooltip');
+            tooltip.classList.add('show-tooltip');
+            setTimeout(function() {
+                tooltip.classList.remove('show-tooltip');
+            }, 1200); 
+        }
 
-    document.getElementById('copyJsonButton').addEventListener('click', function() {
-        copyJsonToClipboard();
-    });
+        // Event listener for copy JSON button
+        document.getElementById('copyJsonButton').addEventListener('click', function() {
+            copyJsonToClipboard();
+        });

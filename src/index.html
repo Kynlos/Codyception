@@ -1,3 +1,12 @@
+<!-- FILEPATH: /C:/Users/steph/Documents/KynLLM/codyception_model/index.html -->
+<!-- 
+  This is the HTML code for the Codyception - Cody Command Creator by Kynlo.
+  It contains a form for creating custom commands and saving them as JSON files.
+  The form includes input fields for command name, command prompt, slash command, and command note.
+  It also includes a dropdown menu for selecting pre-made commands.
+  The code includes various icons and buttons for interacting with the form.
+  The JavaScript file "scripts.js" is linked at the end of the HTML code.
+-->
 <!DOCTYPE html>
 <html lang="en">
  <head>
@@ -12,6 +21,7 @@
  </head>
 
  <body>
+  <!-- Sidebar -->
   <div class="sidebar">
    <nav class="sidebar-nav">
     <a class="sidebar-link" href="https://discord.com/servers/sourcegraph-969688426372825169" target="_blank">
@@ -41,26 +51,37 @@
     </a>
    </nav>
   </div>
+
+  <!-- Main Container -->
   <div class="container">
+   <!-- Hamburger Menu -->
    <div class="hamburger-menu" onclick="toggleSidebar()">
     <i class="fas fa-bars">
     </i>
    </div>
+
+   <!-- Title -->
    <h1>
     <i class="fa fa-code">
     </i>
     Codyception by Kynlo
    </h1>
+
+   <!-- Dark Mode Toggle -->
    <div id="darkModeToggle" onclick="toggleDarkMode()">
     <i class="fas fa-lightbulb">
     </i>
    </div>
+
+   <!-- Command Name Input -->
    <div>
     <label for="commandName">
      Command Name:
     </label>
     <input id="commandName" placeholder="Enter command name (no spaces)" required="" title="Enter a unique name for the command without spaces. Use hyphens if needed." type="text"/>
    </div>
+
+   <!-- Command Prompt Input -->
    <div>
     <label for="commandPrompt">
      Command Prompt (Prompt to send to Cody.):
@@ -70,6 +91,8 @@
     </small>
     <input id="commandPrompt" placeholder="Enter command prompt" required="" title="A set of questions with instructions for Cody to follow when answering questions." type="text"/>
    </div>
+
+   <!-- Command Context Dropdown -->
    <div class="checkbox-group">
     <label>
      Command Context (Click an item to select):
@@ -112,18 +135,24 @@
      </div>
     </div>
    </div>
+
+   <!-- Slash Command Input -->
    <div>
     <label for="slashCommand">
      Slash Command:
     </label>
     <input id="slashCommand" placeholder="Enter slash command (optional)" title="A single keyword for Cody to associate the command with during chat sessions, e.g. /reset" type="text"/>
    </div>
+
+   <!-- Command Note Input -->
    <div>
     <label for="commandNote">
      Command Note:
     </label>
     <input id="commandNote" placeholder="Enter command note (optional)" title="Optional additional note." type="text"/>
    </div>
+
+   <!-- Pre-made Command Dropdown -->
    <div>
     <label for="premadeCommands">
      Select Pre-made Command (Made By Kynlo):
@@ -134,11 +163,15 @@
      </option>
     </select>
    </div>
+
+   <!-- Show JSON Data Button -->
    <button id="showJsonButton" title="Show JSON Data">
     <i class="fa fa-code">
     </i>
     Show JSON Data
    </button>
+
+   <!-- JSON Modal -->
    <div class="modal" id="jsonModal">
     <div class="modal-content">
      <span class="close">
@@ -150,11 +183,15 @@
      </button>
     </div>
    </div>
+
+   <!-- Create Command Button -->
    <button id="createCommand" title="Click to create the command and prompt to save as a JSON file.">
     <i class="fa fa-plus-circle">
     </i>
     Create Command and Save
    </button>
+
+   <!-- Open Cody AI Extension in VSCode Button -->
    <button onclick="openVSCodeToExtension('sourcegraph.cody-ai')" style="display: flex; align-items: center; justify-content: center;" title="Open Cody AI in VSCode">
     <svg aria-hidden="true" class="mdi-icon Icon-module__icon-inline NavItem-module__icon" height="20" role="img" viewbox="0 0 20 20" width="24" xmlns="http://www.w3.org/2000/svg">
      <path d="M13.9088 4C14.756 4 15.4429 4.69836 15.4429 5.55983V8.33286C15.4429 9.19433 14.756 9.89269 13.9088 9.89269C13.0615 9.89269 12.3747 9.19433 12.3747 8.33286V5.55983C12.3747 4.69836 13.0615 4 13.9088 4Z" fill="#ffffff">
@@ -168,6 +205,8 @@
      Open Cody AI Extension in VSCode
     </span>
    </button>
+
+   <!-- Instructions Button -->
    <div>
     <button id="instructionsButton" title="Click to view the instructions for adding custom commands.">
      <i class="fa fa-question-circle">
@@ -176,7 +215,9 @@
     </button>
    </div>
   </div>
+
+  <!-- JavaScript File -->
   <script src="scripts.js">
-</script>
+  </script>
  </body>
 </html>
