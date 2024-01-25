@@ -7,8 +7,6 @@
         });
         </script>
 <head>
-        <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT7YJ8S06W"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -16,9 +14,6 @@
 
     gtag('config', 'G-FT7YJ8S06W');
     </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1530425128037576"
-    crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-1530425128037576">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codyception - Cody Command Creator by Kynlo</title>
@@ -136,19 +131,19 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 250px; /* Adjust width as needed */
+        width: 250px; 
         height: 100%;
-        background-color: #333; /* Match your dark mode color */
+        background-color: #333; 
         color: #fff;
         transition: transform 0.3s ease;
         transform: translateX(-100%);
-        z-index: 1000; /* Ensure it's above other content */
+        z-index: 1000;
     }
 
     .sidebar-nav {
         display: flex;
         flex-direction: column;
-        padding-top: 20px; /* Adjust padding as needed */
+        padding-top: 20px; 
     }
 
     .sidebar-link {
@@ -160,7 +155,7 @@
     }
 
     .sidebar-link:hover {
-        background-color: #5cb85c; /* Match your button hover color */
+        background-color: #5cb85c; 
     }
 
     .sidebar-link i {
@@ -175,17 +170,99 @@
         }
     }
 
-    /* Add a class to body when sidebar is open */
+    
     .body-sidebar-open .sidebar {
         transform: translateX(0);
     }
+
+
+
+    .modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    #jsonDisplay {
+    white-space: pre-wrap;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    overflow: auto; /* In case of overflow */
+    max-height: 400px; 
+}
+
+.tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.show-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
     </style>
 </head>
 
 <body>
     <div class="sidebar">
         <nav class="sidebar-nav">
-            <a href="https://discordapp.com/" target="_blank" class="sidebar-link"><i class="fab fa-discord"></i>Discord</a>
+            <a href="https://discord.com/servers/sourcegraph-969688426372825169" target="_blank" class="sidebar-link"><i class="fab fa-discord"></i>Discord</a>
             <a href="https://github.com/sourcegraph/cody/" target="_blank" class="sidebar-link"><i class="fab fa-github"></i> GitHub</a>
             <a href="https://www.sourcegraph.com/" target="_blank" class="sidebar-link"><i class="fas fa-globe"></i> Sourcegraph</a>
             <a href="https://docs.sourcegraph.com/" target="_blank" class="sidebar-link"><i class="fas fa-book"></i>  Docs</a>
@@ -240,8 +317,18 @@
             </select>
         </div>
         
-
-        <button id="createCommand" title="Click to create the command and prompt to save as a JSON file."><i class="fa fa-plus-circle"></i> Create Command</button>
+        <button id="showJsonButton" title="Show JSON Data">
+            <i class="fa fa-code"></i> Show JSON Data
+        </button>
+        <div id="jsonModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <pre id="jsonDisplay"></pre>
+                <button id="copyJsonButton">Copy JSON</button>
+            </div>
+        </div>
+        
+        <button id="createCommand" title="Click to create the command and prompt to save as a JSON file."><i class="fa fa-plus-circle"></i> Create Command and Save</button>
 
         <button onclick="openVSCodeToExtension('sourcegraph.cody-ai')" title="Open Cody AI in VSCode" style="display: flex; align-items: center; justify-content: center;">
             <svg width="24" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="mdi-icon Icon-module__icon-inline NavItem-module__icon" role="img" aria-hidden="true">
@@ -400,6 +487,80 @@
     window.addEventListener('load', function() {
         applyDarkModePreference();
         populateDropdown();
+    });
+
+
+
+    function constructCommandData() {
+        const commandName = document.getElementById('commandName').value.trim();
+        const commandPrompt = document.getElementById('commandPrompt').value.trim();
+        const slashCommand = document.getElementById('slashCommand').value.trim();
+        const commandNote = document.getElementById('commandNote').value.trim();
+
+        if (!commandName || !commandPrompt) {
+            alert('Please fill in all required fields.');
+            return null;
+        }
+
+        const commandData = {
+            command_name: commandName,
+            prompt: commandPrompt,
+            context: selectedContexts,
+            slashCommand: slashCommand,
+            note: commandNote
+        };
+
+        return commandData;
+    }
+
+    function showModalWithJson(jsonData) {
+        var modal = document.getElementById('jsonModal');
+        var jsonDisplay = document.getElementById('jsonDisplay');
+        var jsonString = JSON.stringify(jsonData, null, 2);
+
+        jsonDisplay.textContent = jsonString;
+        modal.style.display = "block";
+    }
+
+    document.getElementById('showJsonButton').addEventListener('click', function() {
+        const commandData = constructCommandData();
+        if (commandData) {
+            showModalWithJson(commandData);
+        }
+        });
+    var modal = document.getElementById('jsonModal');
+
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+
+    function copyJsonToClipboard() {
+        var jsonDisplay = document.getElementById('jsonDisplay');
+        var range = document.createRange();
+        range.selectNode(jsonDisplay);
+        window.getSelection().removeAllRanges(); 
+        window.getSelection().addRange(range);
+        document.execCommand('copy');
+        window.getSelection().removeAllRanges(); 
+
+        var tooltip = document.getElementById('copyTooltip');
+        tooltip.classList.add('show-tooltip');
+        setTimeout(function() {
+            tooltip.classList.remove('show-tooltip');
+        }, 1200); 
+    }
+
+    document.getElementById('copyJsonButton').addEventListener('click', function() {
+        copyJsonToClipboard();
     });
 </script>
     
