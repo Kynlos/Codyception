@@ -44,8 +44,11 @@ Open a terminal window and navigate to the folder with this script, type `python
 ## Usage
 
 **Enter Command Details:** Fill in the command name and prompt in the provided input fields.
+
 **Select Context Options:** Choose the context in which your command should operate by selecting from the available options.
+
 **Create Command:** Click the "Create Command" button to generate a .json file with your command details.
+
 **Use Pre-made Commands:** Optionally, select a pre-made command from the dropdown to autofill the form.
 
 ## Contributing
