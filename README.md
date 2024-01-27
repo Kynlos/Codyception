@@ -19,8 +19,21 @@ git clone https://github.com/your-username/codyception.git
 cd codyception
 # Open the index.html file in your default web browser (see below for info on how to run this locally and not on a web-server)
 ```
+### Running Locally
 
-**Note:** You will need to run a basic web-server if you are running this locally.  To do this, create a new file called `cody-srv.py` (this needs to be in the same folder as your `index.html` file), and paste the following code:
+**Note:** You will need to run a basic web-server if you are running this locally.  To do this, you can use any of the following methods:
+
+#### With npm
+
+```bash
+npm i http-server -g
+cd src/
+http-server
+```
+
+#### With Python
+
+Create a new file called `cody-srv.py` (this needs to be in the same folder as your `index.html` file), and paste the following code:
 
 ```python
 import http.server
