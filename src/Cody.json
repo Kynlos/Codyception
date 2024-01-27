@@ -1,0 +1,2959 @@
+{
+  "commands": {
+    "testcommand": {
+      "description": "testcommand",
+      "prompt": "PROMPT HERE",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "explain-code-flow": {
+      "description": "explain-code-flow",
+      "prompt": "Explain the logical flow of the code, focusing on how each section contributes to the overall functionality. Assume the audience is an experienced programmer.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "algorithm-analysis": {
+      "description": "algorithm-analysis",
+      "prompt": "Analyze and document the algorithms used in the code, detailing their efficiency and how they achieve their intended purpose.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "error-handling-explanation": {
+      "description": "error-handling-explanation",
+      "prompt": "Elaborate on the error handling mechanisms in the code, explaining how potential issues are identified and addressed.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "concurrency-parallelism-overview": {
+      "description": "concurrency-parallelism-overview",
+      "prompt": "Provide an overview of any concurrency or parallelism concepts used in the code, emphasizing their role in optimizing performance.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "data-structure-discussion": {
+      "description": "data-structure-discussion",
+      "prompt": "Discuss the choice of data structures in the code, highlighting their suitability for the given problem and any alternatives that could be considered.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-extensibility-assessment": {
+      "description": "code-extensibility-assessment",
+      "prompt": "Evaluate the code for extensibility, proposing ways to make it more modular and accommodating for future enhancements.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "testing-strategy-explanation": {
+      "description": "testing-strategy-explanation",
+      "prompt": "Explain the testing strategy employed in the code, emphasizing its comprehensiveness and suggesting improvements for better coverage.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "performance-profiling-request": {
+      "description": "performance-profiling-request",
+      "prompt": "Request a performance profiling analysis for the code, outlining areas that may benefit from optimization to enhance overall efficiency.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "dependency-library-justification": {
+      "description": "dependency-library-justification",
+      "prompt": "Justify the choice of external dependencies or libraries in the code, detailing how they contribute to the project's goals.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-review-checklist-integration": {
+      "description": "code-review-checklist-integration",
+      "prompt": "Integrate a code review checklist into the existing code documentation, covering aspects like style, security, and best practices.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "security-analysis-overview": {
+      "description": "security-analysis-overview",
+      "prompt": "Conduct a thorough security analysis of the code, outlining any vulnerabilities and detailing the implemented security measures.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "user-documentation-review": {
+      "description": "user-documentation-review",
+      "prompt": "Evaluate the user documentation for the code, suggesting improvements to enhance user understanding and experience.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "code-optimization-recommendations": {
+      "description": "code-optimization-recommendations",
+      "prompt": "Identify opportunities for code optimization, proposing changes that can improve performance without sacrificing functionality.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "accessibility-compliance-check": {
+      "description": "accessibility-compliance-check",
+      "prompt": "Conduct an accessibility compliance check on the code, addressing any issues to enhance inclusivity.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "documentation-maintenance-guidelines": {
+      "description": "documentation-maintenance-guidelines",
+      "prompt": "Establish guidelines for maintaining documentation, ensuring it reflects the current state of the code and its functionalities.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "code-reuse-analysis": {
+      "description": "code-reuse-analysis",
+      "prompt": "Analyze the code for opportunities to promote code reuse, identifying modules or functions that can be generalized for broader application.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "code-deployment-strategy": {
+      "description": "code-deployment-strategy",
+      "prompt": "Provide insights into the code deployment strategy, covering versioning, rollback procedures, and considerations for different deployment environments.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "documentation-consistency-review": {
+      "description": "documentation-consistency-review",
+      "prompt": "Review all documentation for consistency, addressing any discrepancies in coding standards, naming conventions, or formatting.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "compliance-and-legal-check": {
+      "description": "compliance-and-legal-check",
+      "prompt": "Verify code compliance with legal requirements, addressing any issues related to licensing or regulatory compliance.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "continuous-integration-recommendations": {
+      "description": "continuous-integration-recommendations",
+      "prompt": "Propose strategies for integrating continuous integration practices into the code development workflow, emphasizing automation and efficiency gains.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "code-architecture-evaluation": {
+      "description": "code-architecture-evaluation",
+      "prompt": "Evaluate the overall code architecture, identifying strengths, weaknesses, and potential improvements for better scalability and maintainability.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "logging-strategy-review": {
+      "description": "logging-strategy-review",
+      "prompt": "Review the logging strategy implemented in the code, ensuring it provides sufficient information for troubleshooting and debugging.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-naming-conventions-check": {
+      "description": "code-naming-conventions-check",
+      "prompt": "Check the adherence to code naming conventions, suggesting improvements for consistency and clarity.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-review-best-practices": {
+      "description": "code-review-best-practices",
+      "prompt": "Provide a comprehensive guide on best practices for conducting effective and constructive code reviews within the development team.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "containerization-assessment": {
+      "description": "containerization-assessment",
+      "prompt": "Assess the feasibility and benefits of containerization for the codebase, outlining the potential advantages and challenges.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "code-maintainability-check": {
+      "description": "code-maintainability-check",
+      "prompt": "Evaluate the code for maintainability, suggesting improvements to enhance long-term manageability and reduce technical debt.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "integration-testing-strategy": {
+      "description": "integration-testing-strategy",
+      "prompt": "Define a comprehensive integration testing strategy for the code, ensuring seamless collaboration between different components.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-documentation-standards": {
+      "description": "code-documentation-standards",
+      "prompt": "Establish and document coding standards for inline comments and documentation to ensure consistency across the entire codebase.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-versioning-guidelines": {
+      "description": "code-versioning-guidelines",
+      "prompt": "Define guidelines for code versioning, including branching strategies and release management practices, to streamline collaboration.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "python-ml-model-evaluation": {
+      "description": "python-ml-model-evaluation",
+      "prompt": "Given the Python codebase and selection, analyze and evaluate the performance of the machine learning model. Consider metrics like accuracy, precision, recall, and F1 score. Provide insights into areas for improvement.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "llm-fine-tuning-strategy": {
+      "description": "llm-fine-tuning-strategy",
+      "prompt": "Examine the Python code and selection to define a fine-tuning strategy for a Large Language Model (LLM). Outline the steps and parameters to optimize performance, especially for specific tasks.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "python-ml-feature-engineering": {
+      "description": "python-ml-feature-engineering",
+      "prompt": "Within the provided Python codebase and selection, implement feature engineering techniques for a machine learning model. Address data preprocessing, transformation, and extraction for improved model performance.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "llm-customization-guide": {
+      "description": "llm-customization-guide",
+      "prompt": "Based on the Python code and selection, create a guide on customizing a Large Language Model (LLM). Provide insights into adjusting parameters and incorporating domain-specific vocabulary for effective customization.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "python-ml-hyperparameter-tuning": {
+      "description": "python-ml-hyperparameter-tuning",
+      "prompt": "Within the Python codebase and selection, implement hyperparameter tuning techniques. Optimize the parameters of the machine learning model for enhanced performance and provide documentation on the changes made.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "llm-context-awareness": {
+      "description": "llm-context-awareness",
+      "prompt": "Analyze the provided Python code and selection to enhance the context awareness of a Large Language Model (LLM). Consider contextual cues for more accurate language understanding and provide recommendations.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "python-ml-model-deployment": {
+      "description": "python-ml-model-deployment",
+      "prompt": "Given the Python codebase and selection, develop a deployment strategy for the machine learning model. Consider scalability, efficiency, and integration with other systems. Provide clear steps for deployment.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "llm-transfer-learning-implementation": {
+      "description": "llm-transfer-learning-implementation",
+      "prompt": "Analyze the Python codebase and selection to implement transfer learning techniques for a Large Language Model (LLM). Leverage pre-trained models for specific tasks and document the transfer learning process.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "python-ml-anomaly-detection": {
+      "description": "python-ml-anomaly-detection",
+      "prompt": "Within the provided Python codebase and selection, implement anomaly detection algorithms for the machine learning model. Identify unusual patterns and outliers in the data, and provide documentation on the implementation.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "llm-contextual-generation-strategy": {
+      "description": "llm-contextual-generation-strategy",
+      "prompt": "Based on the Python code and selection, define a strategy for generating contextual language with a Large Language Model (LLM). Consider diverse scenarios and applications. Provide clear implementation steps.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "python-ml-model-interpretability": {
+      "description": "python-ml-model-interpretability",
+      "prompt": "Within the Python codebase and selection, enhance the interpretability of the machine learning model. Incorporate techniques to explain model predictions and decisions. Provide detailed documentation on the changes made.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "llm-ethical-ai-guidelines": {
+      "description": "llm-ethical-ai-guidelines",
+      "prompt": "Analyze the Python code and selection to create ethical AI guidelines for the development and deployment of Large Language Models (LLMs). Address bias, fairness, and transparency. Provide clear recommendations.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "python-ml-model-monitoring": {
+      "description": "python-ml-model-monitoring",
+      "prompt": "Given the Python codebase and selection, implement a model monitoring system for machine learning models. Track performance metrics and detect deviations over time. Document the monitoring setup and configuration.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "llm-multimodal-learning-implementation": {
+      "description": "llm-multimodal-learning-implementation",
+      "prompt": "Analyze the Python codebase and selection to integrate multimodal learning techniques into a Large Language Model (LLM). Handle multiple types of data (e.g., text and images) for improved understanding. Provide detailed implementation steps.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "python-ml-online-learning-strategy": {
+      "description": "python-ml-online-learning-strategy",
+      "prompt": "Based on the provided Python codebase and selection, develop a strategy for online learning. Update machine learning models dynamically based on new data streams or changing patterns. Provide clear guidelines for implementation.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "llm-conversational-ai-enhancement": {
+      "description": "llm-conversational-ai-enhancement",
+      "prompt": "Analyze the Python code and selection to enhance the conversational abilities of a Large Language Model (LLM). Consider natural language understanding and generation for improved interactions. Provide clear implementation steps.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "python-ml-distributed-training": {
+      "description": "python-ml-distributed-training",
+      "prompt": "Within the provided Python codebase and selection, implement distributed training techniques for machine learning models. Optimize training speed and efficiency across multiple compute resources. Provide detailed documentation on the implementation.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "python-ml-transfer-learning-guidelines": {
+      "description": "python-ml-transfer-learning-guidelines",
+      "prompt": "Analyze the Python codebase and selection to provide guidelines on implementing transfer learning for machine learning models. Address best practices and considerations for effective transfer learning.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "llm-code-generation-enhancement": {
+      "description": "llm-code-generation-enhancement",
+      "prompt": "Based on the Python code and selection, enhance the code generation capabilities of a Large Language Model (LLM). Consider context-aware code suggestions and improvements. Provide clear implementation steps.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "python-ml-reinforcement-learning-implementation": {
+      "description": "python-ml-reinforcement-learning-implementation",
+      "prompt": "Analyze the provided Python codebase and selection to implement reinforcement learning techniques for machine learning models. Optimize models based on rewards and feedback. Provide clear documentation on the reinforcement learning process.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-python-to-java": {
+      "description": "code-conversion-python-to-java",
+      "prompt": "Given the provided Python codebase and selection, perform a comprehensive conversion to Java. Ensure functionality equivalence and address language-specific nuances. Provide documentation on the conversion process.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-java-to-python": {
+      "description": "code-conversion-java-to-python",
+      "prompt": "Analyze the provided Java codebase and selection, and convert it to Python. Ensure a smooth transition while maintaining functionality. Address language-specific differences. Document the conversion process.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-csharp-to-python": {
+      "description": "code-conversion-csharp-to-python",
+      "prompt": "Given the provided C# codebase and selection, perform a thorough conversion to Python. Ensure functionality remains intact and handle language-specific variations. Provide detailed documentation on the conversion.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-python-to-csharp": {
+      "description": "code-conversion-python-to-csharp",
+      "prompt": "Analyze the Python codebase and selection, and convert it to C#. Ensure functionality equivalence and address language-specific differences. Provide clear documentation on the conversion process.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-java-to-csharp": {
+      "description": "code-conversion-java-to-csharp",
+      "prompt": "Given the Java codebase and selection, perform a comprehensive conversion to C#. Ensure functionality equivalence and handle language-specific nuances. Document the conversion process for future reference.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-csharp-to-java": {
+      "description": "code-conversion-csharp-to-java",
+      "prompt": "Analyze the provided C# codebase and selection, and convert it to Java. Ensure a seamless transition while maintaining functionality. Document the conversion process to facilitate understanding.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-python-to-js": {
+      "description": "code-conversion-python-to-js",
+      "prompt": "Given the Python codebase and selection, perform a comprehensive conversion to JavaScript. Ensure functional parity and address language-specific differences. Document the conversion process for clarity.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-js-to-python": {
+      "description": "code-conversion-js-to-python",
+      "prompt": "Analyze the provided JavaScript codebase and selection, and convert it to Python. Ensure a smooth transition and maintain functionality. Provide detailed documentation on the conversion process.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-java-to-js": {
+      "description": "code-conversion-java-to-js",
+      "prompt": "Given the Java codebase and selection, perform a thorough conversion to JavaScript. Ensure functional equivalence and address language-specific nuances. Document the conversion process comprehensively.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-js-to-java": {
+      "description": "code-conversion-js-to-java",
+      "prompt": "Analyze the provided JavaScript codebase and selection, and convert it to Java. Ensure a seamless transition while maintaining functionality. Provide clear and detailed documentation on the conversion process.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-csharp-to-js": {
+      "description": "code-conversion-csharp-to-js",
+      "prompt": "Given the provided C# codebase and selection, perform a comprehensive conversion to JavaScript. Ensure functionality equivalence and handle language-specific differences. Document the conversion process in detail.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-js-to-csharp": {
+      "description": "code-conversion-js-to-csharp",
+      "prompt": "Analyze the provided JavaScript codebase and selection, and convert it to C#. Ensure a smooth transition and maintain functionality. Provide detailed documentation on the conversion process for clarity.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-python-to-typescript": {
+      "description": "code-conversion-python-to-typescript",
+      "prompt": "Given the Python codebase and selection, perform a comprehensive conversion to TypeScript. Ensure functional parity and address language-specific differences. Document the conversion process for future reference.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-typescript-to-python": {
+      "description": "code-conversion-typescript-to-python",
+      "prompt": "Analyze the provided TypeScript codebase and selection, and convert it to Python. Ensure a smooth transition and maintain functionality. Provide detailed documentation on the conversion process for clarity.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-java-to-typescript": {
+      "description": "code-conversion-java-to-typescript",
+      "prompt": "Given the Java codebase and selection, perform a thorough conversion to TypeScript. Ensure functional equivalence and address language-specific nuances. Document the conversion process comprehensively.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-typescript-to-java": {
+      "description": "code-conversion-typescript-to-java",
+      "prompt": "Analyze the provided TypeScript codebase and selection, and convert it to Java. Ensure a seamless transition while maintaining functionality. Provide clear and detailed documentation on the conversion process.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-csharp-to-typescript": {
+      "description": "code-conversion-csharp-to-typescript",
+      "prompt": "Given the provided C# codebase and selection, perform a comprehensive conversion to TypeScript. Ensure functionality equivalence and handle language-specific differences. Document the conversion process in detail.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-conversion-typescript-to-csharp": {
+      "description": "code-conversion-typescript-to-csharp",
+      "prompt": "Analyze the provided TypeScript codebase and selection, and convert it to C#. Ensure a smooth transition and maintain functionality. Provide detailed documentation on the conversion process for clarity.",
+      "context": {
+        "codebase": true,
+        "selection": true,
+        "currentFile": true
+      }
+    },
+    "code-exploration-overview": {
+      "description": "code-exploration-overview",
+      "prompt": "Provide a high-level overview of the entire codebase, highlighting key components, modules, and their interconnections. Offer insights into the code's architecture and organization.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-structure-analysis": {
+      "description": "code-structure-analysis",
+      "prompt": "Analyze the overall structure of the codebase, focusing on directory organization, naming conventions, and file relationships. Offer suggestions for improving code organization.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-dependency-visualization": {
+      "description": "code-dependency-visualization",
+      "prompt": "Generate a visual representation of code dependencies, illustrating how different modules or components depend on each other. Provide insights into the relationships within the codebase.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-commentary-request": {
+      "description": "code-commentary-request",
+      "prompt": "Request comprehensive comments within the codebase to explain key functionalities, algorithms, and decision points. Encourage commenting for clarity and future reference.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-variable-naming-guidelines": {
+      "description": "code-variable-naming-guidelines",
+      "prompt": "Provide guidelines for consistent and meaningful variable naming conventions throughout the codebase. Emphasize the importance of clear and descriptive variable names.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-function-documentation": {
+      "description": "code-function-documentation",
+      "prompt": "Encourage thorough documentation for functions and methods, including input parameters, expected outputs, and usage examples. Foster a habit of documenting code functionality.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-testing-introduction": {
+      "description": "code-testing-introduction",
+      "prompt": "Introduce the basics of code testing, covering unit tests, integration tests, and test-driven development (TDD). Provide guidance on writing effective tests for the codebase.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-debugging-techniques": {
+      "description": "code-debugging-techniques",
+      "prompt": "Offer guidance on effective debugging techniques, including the use of breakpoints, logging, and debugging tools. Assist in identifying and resolving common coding errors.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-version-control-overview": {
+      "description": "code-version-control-overview",
+      "prompt": "Provide an overview of version control systems (e.g., Git) used in the codebase. Explain basic version control concepts and best practices for collaborative development.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-review-basics": {
+      "description": "code-review-basics",
+      "prompt": "Introduce the basics of code review, including the importance of constructive feedback, adherence to coding standards, and collaborative improvement. Encourage a positive code review culture.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-readability-guidelines": {
+      "description": "code-readability-guidelines",
+      "prompt": "Provide guidelines for writing readable code, emphasizing consistent indentation, clear comments, and concise yet expressive syntax. Promote practices that enhance code readability.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-design-patterns-introduction": {
+      "description": "code-design-patterns-introduction",
+      "prompt": "Introduce common design patterns used in the codebase, explaining their purpose and advantages. Encourage the application of design patterns for scalable and maintainable code.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-security-awareness": {
+      "description": "code-security-awareness",
+      "prompt": "Raise awareness about code security best practices, including input validation, secure coding principles, and protection against common vulnerabilities. Emphasize the importance of writing secure code.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-performance-optimization-tips": {
+      "description": "code-performance-optimization-tips",
+      "prompt": "Offer tips and techniques for optimizing code performance, including algorithmic improvements, caching strategies, and resource management. Aim to enhance the overall efficiency of the codebase.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-documentation-navigation": {
+      "description": "code-documentation-navigation",
+      "prompt": "Guide users on effective navigation through code documentation. Demonstrate how to find relevant information, understand code structure, and use documentation for efficient coding.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-collaboration-strategies": {
+      "description": "code-collaboration-strategies",
+      "prompt": "Provide strategies for effective code collaboration, covering communication channels, collaboration tools, and best practices for working together on the codebase. Foster a collaborative development environment.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-maintenance-guidelines": {
+      "description": "code-maintenance-guidelines",
+      "prompt": "Establish guidelines for code maintenance, emphasizing the importance of keeping code up-to-date, addressing technical debt, and following a consistent code maintenance routine.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-learning-resources": {
+      "description": "code-learning-resources",
+      "prompt": "Compile a list of recommended learning resources, tutorials, and documentation to help users enhance their understanding of coding concepts and improve their skills.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-architecture-diagram": {
+      "description": "code-architecture-diagram",
+      "prompt": "Generate a visual diagram illustrating the architecture of the codebase. Highlight major components, their interactions, and the overall flow of data or control within the system.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-error-message-improvement": {
+      "description": "code-error-message-improvement",
+      "prompt": "Identify areas where error messages can be improved within the codebase. Offer suggestions for clearer and more informative error messages to aid debugging and troubleshooting.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-quality-assessment": {
+      "description": "code-quality-assessment",
+      "prompt": "Conduct a comprehensive assessment of code quality in the provided codebase. Evaluate adherence to coding standards, identify potential code smells, and propose improvements for enhanced maintainability.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "code-migration-strategy": {
+      "description": "code-migration-strategy",
+      "prompt": "Develop a strategy for migrating the codebase to a new framework, language, or architecture. Consider potential challenges, dependencies, and gradual migration approaches.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-performance-tuning": {
+      "description": "codebase-performance-tuning",
+      "prompt": "Analyze the codebase and provide suggestions for optimizing performance, including algorithmic improvements and resource management.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-memory-usage-analysis": {
+      "description": "codebase-memory-usage-analysis",
+      "prompt": "Evaluate memory usage patterns within the codebase and propose strategies for efficient memory management.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-database-query-optimization": {
+      "description": "codebase-database-query-optimization",
+      "prompt": "Optimize database queries in the codebase for improved efficiency, considering indexing, query structure, and caching.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-internationalization-assessment": {
+      "description": "codebase-internationalization-assessment",
+      "prompt": "Assess the codebase for internationalization readiness, identifying areas for language support and localization.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-microservices-integration": {
+      "description": "codebase-microservices-integration",
+      "prompt": "Guide the integration of microservices into the codebase, addressing communication protocols, service discovery, and fault tolerance.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-serverless-architecture-evaluation": {
+      "description": "codebase-serverless-architecture-evaluation",
+      "prompt": "Evaluate the suitability of serverless architecture for the codebase, considering scalability, cost-effectiveness, and event-driven design.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-containerization-strategy": {
+      "description": "codebase-containerization-strategy",
+      "prompt": "Develop a strategy for containerizing the codebase using technologies like Docker, ensuring consistency across environments.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-api-design-review": {
+      "description": "codebase-api-design-review",
+      "prompt": "Review the design of APIs within the codebase, providing recommendations for RESTful principles, versioning, and documentation.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-graphql-integration": {
+      "description": "codebase-graphql-integration",
+      "prompt": "Guide the integration of GraphQL into the codebase, considering schema design, query optimization, and data fetching strategies.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-websocket-implementation": {
+      "description": "codebase-websocket-implementation",
+      "prompt": "Assist in implementing WebSocket communication within the codebase for real-time features, such as chat or live updates.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-event-driven-architecture-assessment": {
+      "description": "codebase-event-driven-architecture-assessment",
+      "prompt": "Assess the codebase for event-driven architecture, providing recommendations for handling asynchronous communication and scalability.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-ai-model-integration": {
+      "description": "codebase-ai-model-integration",
+      "prompt": "Guide the integration of machine learning models into the codebase, addressing model deployment, inference, and monitoring.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-continuous-integration-deployment-pipeline-setup": {
+      "description": "codebase-continuous-integration-deployment-pipeline-setup",
+      "prompt": "Set up a CI/CD pipeline for the codebase, automating build, testing, and deployment processes for efficient development workflows.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-cloud-service-integration": {
+      "description": "codebase-cloud-service-integration",
+      "prompt": "Integrate cloud services (e.g., AWS, Azure, GCP) into the codebase, optimizing for scalability, security, and cost-effectiveness.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-progressive-web-app-implementation": {
+      "description": "codebase-progressive-web-app-implementation",
+      "prompt": "Guide the implementation of Progressive Web App features in the codebase, enhancing web application performance and user experience.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-blockchain-integration-strategy": {
+      "description": "codebase-blockchain-integration-strategy",
+      "prompt": "Develop a strategy for integrating blockchain technology into the codebase, addressing smart contract development and decentralized applications.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-augmented-reality-integration": {
+      "description": "codebase-augmented-reality-integration",
+      "prompt": "Guide the integration of augmented reality features into the codebase, enhancing user interactions through AR experiences.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-chatbot-integration": {
+      "description": "codebase-chatbot-integration",
+      "prompt": "Assist in integrating chatbot functionality into the codebase, considering natural language processing and user interaction patterns.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-internet-of-things-integration": {
+      "description": "codebase-internet-of-things-integration",
+      "prompt": "Guide the integration of IoT devices and sensors into the codebase, addressing data ingestion, processing, and device management.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "codebase-quantum-computing-exploration": {
+      "description": "codebase-quantum-computing-exploration",
+      "prompt": "Explore potential use cases for integrating quantum computing concepts into the codebase, considering quantum algorithms and quantum-safe cryptography.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-pandas-tips": {
+      "description": "python-pandas-tips",
+      "prompt": "Provide tips and best practices for using the Pandas library in Python. Cover data manipulation, cleaning, and analysis techniques.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-numpy-tricks": {
+      "description": "python-numpy-tricks",
+      "prompt": "Offer advanced tips and tricks for efficient numerical operations using the NumPy library in Python. Explore array manipulation and mathematical functions.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-matplotlib-customization": {
+      "description": "python-matplotlib-customization",
+      "prompt": "Guide customization of Matplotlib plots in Python. Explore techniques for adjusting colors, styles, and annotations for effective data visualization.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-requests-library-usage": {
+      "description": "python-requests-library-usage",
+      "prompt": "Demonstrate effective usage of the Requests library for HTTP requests in Python. Cover authentication, handling responses, and error handling.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-beautifulsoup-web-scraping": {
+      "description": "python-beautifulsoup-web-scraping",
+      "prompt": "Guide web scraping using the BeautifulSoup library in Python. Cover HTML parsing, element extraction, and navigating document structures.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-django-models-guide": {
+      "description": "python-django-models-guide",
+      "prompt": "Provide a comprehensive guide on creating and working with Django models in Python. Cover model fields, relationships, and queries.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-flask-api-development": {
+      "description": "python-flask-api-development",
+      "prompt": "Assist in developing RESTful APIs using the Flask framework in Python. Cover routing, request handling, and response formatting.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-sqlalchemy-database-interaction": {
+      "description": "python-sqlalchemy-database-interaction",
+      "prompt": "Guide interaction with databases using SQLAlchemy in Python. Cover model definition, querying, and transactions.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-fastapi-guide": {
+      "description": "python-fastapi-guide",
+      "prompt": "Provide a guide on building APIs with FastAPI in Python. Cover dependency injection, request validation, and automatic documentation.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-scikit-learn-machine-learning": {
+      "description": "python-scikit-learn-machine-learning",
+      "prompt": "Assist in implementing machine learning models using Scikit-Learn in Python. Cover data preprocessing, model training, and evaluation.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-tensorflow-model-development": {
+      "description": "python-tensorflow-model-development",
+      "prompt": "Guide the development of machine learning models using TensorFlow in Python. Cover model architecture, training, and deployment.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-pytorch-deep-learning": {
+      "description": "python-pytorch-deep-learning",
+      "prompt": "Assist in implementing deep learning models with PyTorch in Python. Cover tensor manipulation, model definition, and training.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-keras-neural-networks": {
+      "description": "python-keras-neural-networks",
+      "prompt": "Guide the implementation of neural networks using Keras in Python. Cover model building, training, and fine-tuning.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-redis-cache-implementation": {
+      "description": "python-redis-cache-implementation",
+      "prompt": "Demonstrate the implementation of caching using Redis in Python. Cover key-value storage, expiration policies, and cache integration.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-selenium-web-automation": {
+      "description": "python-selenium-web-automation",
+      "prompt": "Guide web automation using Selenium in Python. Cover browser automation, element interaction, and handling dynamic web pages.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-pygame-game-development": {
+      "description": "python-pygame-game-development",
+      "prompt": "Assist in game development using Pygame in Python. Cover sprite handling, game loops, and user input processing.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-openai-gpt-3-integration": {
+      "description": "python-openai-gpt-3-integration",
+      "prompt": "Guide the integration of OpenAI's GPT-3 into Python applications. Cover API usage, response handling, and creative implementations.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-twitter-api-interaction": {
+      "description": "python-twitter-api-interaction",
+      "prompt": "Demonstrate interaction with the Twitter API using Python. Cover authentication, tweet retrieval, and posting.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-google-maps-api-integration": {
+      "description": "python-google-maps-api-integration",
+      "prompt": "Guide the integration of Google Maps API into Python applications. Cover geocoding, mapping, and location-based services.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-aws-sdk-integration": {
+      "description": "python-aws-sdk-integration",
+      "prompt": "Assist in integrating the AWS SDK into Python applications. Cover services such as S3, DynamoDB, and Lambda.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-aws-lambda-deployment": {
+      "description": "python-aws-lambda-deployment",
+      "prompt": "Guide the deployment of Python functions as AWS Lambda. Cover packaging, configuration, and serverless architecture best practices.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-dash-data-visualization": {
+      "description": "python-dash-data-visualization",
+      "prompt": "Assist in creating interactive data visualizations using Dash in Python. Cover layout design, callback functions, and data presentation.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-docker-containerization": {
+      "description": "python-docker-containerization",
+      "prompt": "Guide the containerization of Python applications using Docker. Cover Dockerfile creation, image building, and container orchestration.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-graphql-api-development": {
+      "description": "python-graphql-api-development",
+      "prompt": "Assist in developing APIs with GraphQL in Python. Cover schema definition, queries, mutations, and resolver functions.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-kubernetes-deployment": {
+      "description": "python-kubernetes-deployment",
+      "prompt": "Guide the deployment of Python applications on Kubernetes. Cover pod definition, deployment strategies, and scaling.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-azure-sdk-integration": {
+      "description": "python-azure-sdk-integration",
+      "prompt": "Assist in integrating the Azure SDK into Python applications. Cover services such as Blob Storage, Cosmos DB, and Azure Functions.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-streamlit-app-development": {
+      "description": "python-streamlit-app-development",
+      "prompt": "Guide the development of interactive web apps with Streamlit in Python. Cover layout design, widgets, and data visualization.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-asyncio-programming": {
+      "description": "python-asyncio-programming",
+      "prompt": "Provide guidance on asynchronous programming with asyncio in Python. Cover coroutines, event loops, and concurrent tasks.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-opencv-image-processing": {
+      "description": "python-opencv-image-processing",
+      "prompt": "Assist in image processing tasks using OpenCV in Python. Cover image loading, manipulation, and feature extraction.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-regex-pattern-matching": {
+      "description": "python-regex-pattern-matching",
+      "prompt": "Guide the use of regular expressions for pattern matching in Python. Cover pattern syntax, matching methods, and group extraction.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-twilio-sms-integration": {
+      "description": "python-twilio-sms-integration",
+      "prompt": "Demonstrate integration of Twilio for sending SMS in Python. Cover authentication, message composition, and error handling.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-selenium-web-testing": {
+      "description": "python-selenium-web-testing",
+      "prompt": "Guide web testing using Selenium in Python. Cover test setup, execution, and result validation.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-discord-bot-development": {
+      "description": "python-discord-bot-development",
+      "prompt": "Assist in developing a Discord bot using discord.py in Python. Cover event handling, command processing, and bot deployment.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-geopandas-geospatial-analysis": {
+      "description": "python-geopandas-geospatial-analysis",
+      "prompt": "Guide geospatial analysis using GeoPandas in Python. Cover spatial data manipulation, visualization, and analysis.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-sqlite-database-interaction": {
+      "description": "python-sqlite-database-interaction",
+      "prompt": "Guide interaction with SQLite databases in Python. Cover connection establishment, query execution, and transaction management.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-async-api-consumption": {
+      "description": "python-async-api-consumption",
+      "prompt": "Assist in consuming asynchronous APIs using aiohttp in Python. Cover request handling, response parsing, and error management.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-pytest-testing-framework": {
+      "description": "python-pytest-testing-framework",
+      "prompt": "Guide the use of the Pytest testing framework in Python. Cover test fixture setup, test discovery, and assertions.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-aiogram-telegram-bot": {
+      "description": "python-aiogram-telegram-bot",
+      "prompt": "Assist in developing a Telegram bot using Aiogram in Python. Cover message handling, inline queries, and bot deployment.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-plotly-interactive-charts": {
+      "description": "python-plotly-interactive-charts",
+      "prompt": "Guide the creation of interactive charts using Plotly in Python. Cover figure composition, plot types, and customization.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-google-cloud-sdk-integration": {
+      "description": "python-google-cloud-sdk-integration",
+      "prompt": "Assist in integrating the Google Cloud SDK into Python applications. Cover services such as Cloud Storage, Firestore, and Cloud Functions.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-pygame-multiplayer-game": {
+      "description": "python-pygame-multiplayer-game",
+      "prompt": "Assist in developing a multiplayer game using Pygame in Python. Cover networking, synchronization, and multiplayer game mechanics.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-django-rest-framework-guide": {
+      "description": "python-django-rest-framework-guide",
+      "prompt": "Provide a comprehensive guide on building RESTful APIs with Django Rest Framework in Python. Cover serializers, views, and authentication.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-kivy-app-development": {
+      "description": "python-kivy-app-development",
+      "prompt": "Guide the development of cross-platform apps using Kivy in Python. Cover UI design, event handling, and app deployment.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-ai-chatbot-development": {
+      "description": "python-ai-chatbot-development",
+      "prompt": "Assist in developing an AI-powered chatbot in Python. Cover natural language processing, intent recognition, and dialogue management.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-openpyxl-excel-processing": {
+      "description": "python-openpyxl-excel-processing",
+      "prompt": "Guide Excel processing using Openpyxl in Python. Cover reading and writing Excel files, cell manipulation, and formatting.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-tweepy-twitter-bot": {
+      "description": "python-tweepy-twitter-bot",
+      "prompt": "Assist in developing a Twitter bot using Tweepy in Python. Cover tweet generation, interaction with mentions, and scheduled posts.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-keras-transfer-learning": {
+      "description": "python-keras-transfer-learning",
+      "prompt": "Guide the implementation of transfer learning using Keras in Python. Cover model fine-tuning, feature extraction, and transfer strategies.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-mlflow-model-tracking": {
+      "description": "python-mlflow-model-tracking",
+      "prompt": "Assist in using MLflow for tracking machine learning experiments and managing models in Python. Cover experiment logging, model versioning, and deployment.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-fastapi-websockets": {
+      "description": "python-fastapi-websockets",
+      "prompt": "Guide the implementation of WebSockets using FastAPI in Python. Cover real-time communication, event handling, and WebSocket endpoints.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-pandas-profiling": {
+      "description": "python-pandas-profiling",
+      "prompt": "Assist in using Pandas Profiling for automatic exploratory data analysis in Python. Cover report generation, data insights, and visualization.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-redis-pubsub-messaging": {
+      "description": "python-redis-pubsub-messaging",
+      "prompt": "Guide the implementation of publish/subscribe messaging using Redis in Python. Cover message publishing, subscription, and message handling.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-mlflow-model-deployment": {
+      "description": "python-mlflow-model-deployment",
+      "prompt": "Assist in deploying machine learning models tracked with MLflow in Python. Cover deployment options, containerization, and serving predictions.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-bokeh-interactive-visualizations": {
+      "description": "python-bokeh-interactive-visualizations",
+      "prompt": "Guide the creation of interactive visualizations using Bokeh in Python. Cover plot customization, interactive tools, and widget integration.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-pyqt-gui-application": {
+      "description": "python-pyqt-gui-application",
+      "prompt": "Assist in developing a GUI application using PyQt in Python. Cover widget creation, layout design, and event handling.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-pandas-memory-optimization": {
+      "description": "python-pandas-memory-optimization",
+      "prompt": "Guide memory optimization techniques for large datasets using Pandas in Python. Cover datatype conversion, chunk processing, and memory profiling.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-nltk-nlp-processing": {
+      "description": "python-nltk-nlp-processing",
+      "prompt": "Assist in natural language processing tasks using NLTK in Python. Cover tokenization, part-of-speech tagging, and sentiment analysis.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-jupyter-notebook-best-practices": {
+      "description": "python-jupyter-notebook-best-practices",
+      "prompt": "Provide best practices for effective usage of Jupyter Notebooks in Python. Cover organization, markdown usage, and interactive features.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-django-celery-task-scheduling": {
+      "description": "python-django-celery-task-scheduling",
+      "prompt": "Guide task scheduling using Celery with Django in Python. Cover task creation, periodic tasks, and distributed processing.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-logging-library-configuration": {
+      "description": "python-logging-library-configuration",
+      "prompt": "Assist in configuring the Python logging library for effective logging in applications. Cover log levels, formatting, and log handlers.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-mlflow-experiment-reproduction": {
+      "description": "python-mlflow-experiment-reproduction",
+      "prompt": "Guide the reproduction of machine learning experiments tracked with MLflow in Python. Cover environment setup, dependencies, and experiment cloning.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-flask-restplus-api-documentation": {
+      "description": "python-flask-restplus-api-documentation",
+      "prompt": "Assist in generating API documentation using Flask-RESTPlus in Python. Cover route documentation, model representation, and Swagger integration.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-spacy-nlp-processing": {
+      "description": "python-spacy-nlp-processing",
+      "prompt": "Guide natural language processing tasks using spaCy in Python. Cover entity recognition, dependency parsing, and linguistic annotations.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-fastapi-dependency-injection": {
+      "description": "python-fastapi-dependency-injection",
+      "prompt": "Assist in leveraging dependency injection with FastAPI in Python. Cover dependency declaration, injection scopes, and reusable components.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-sqlalchemy-orm-guide": {
+      "description": "python-sqlalchemy-orm-guide",
+      "prompt": "Provide a comprehensive guide on using SQLAlchemy ORM in Python. Cover model relationships, queries, and transaction management.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-plotly-dash-dashboard": {
+      "description": "python-plotly-dash-dashboard",
+      "prompt": "Guide the creation of interactive dashboards using Plotly Dash in Python. Cover layout design, callback functions, and data visualization.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-google-cloud-storage-integration": {
+      "description": "python-google-cloud-storage-integration",
+      "prompt": "Assist in integrating Google Cloud Storage into Python applications. Cover file uploads, downloads, and storage management.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-azure-cognitive-services-integration": {
+      "description": "python-azure-cognitive-services-integration",
+      "prompt": "Guide the integration of Azure Cognitive Services into Python applications. Cover vision, speech, and language services.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-regex-validation-patterns": {
+      "description": "python-regex-validation-patterns",
+      "prompt": "Assist in creating regex patterns for common validation tasks in Python. Cover email validation, phone number formatting, and custom patterns.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-mlflow-hyperparameter-tuning": {
+      "description": "python-mlflow-hyperparameter-tuning",
+      "prompt": "Guide hyperparameter tuning using MLflow in Python. Cover parameter search space definition, optimization algorithms, and result analysis.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-pandas-data-cleaning": {
+      "description": "python-pandas-data-cleaning",
+      "prompt": "Assist in cleaning and preprocessing data using Pandas in Python. Cover missing value imputation, data normalization, and transformation.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-asyncio-parallel-task-execution": {
+      "description": "python-asyncio-parallel-task-execution",
+      "prompt": "Guide parallel task execution using asyncio in Python. Cover concurrent task scheduling, event loop management, and parallelism benefits.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-twitter-api-analytics": {
+      "description": "python-twitter-api-analytics",
+      "prompt": "Assist in performing analytics on Twitter data using the Twitter API in Python. Cover data retrieval, analysis, and visualization.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "python-graphql-client-implementation": {
+      "description": "python-graphql-client-implementation",
+      "prompt": "Guide the implementation of a GraphQL client in Python. Cover query composition, variable usage, and response handling.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-repository-creation": {
+      "description": "github-repository-creation",
+      "prompt": "Guide the creation of a new repository on GitHub. Cover repository initialization, README creation, and license selection.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-branch-management": {
+      "description": "github-branch-management",
+      "prompt": "Assist in effective branch management on GitHub. Cover branch creation, merging, rebasing, and handling conflicts.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-pull-request-submission": {
+      "description": "github-pull-request-submission",
+      "prompt": "Guide the process of submitting a pull request on GitHub. Cover branch selection, description writing, and review requests.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-issue-tracking": {
+      "description": "github-issue-tracking",
+      "prompt": "Assist in efficient issue tracking on GitHub. Cover issue creation, labeling, assignment, and milestone management.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-code-review-best-practices": {
+      "description": "github-code-review-best-practices",
+      "prompt": "Provide best practices for effective code reviews on GitHub. Cover reviewing techniques, feedback etiquette, and collaboration.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-actions-ci-cd-setup": {
+      "description": "github-actions-ci-cd-setup",
+      "prompt": "Guide the setup of continuous integration/continuous deployment (CI/CD) workflows using GitHub Actions. Cover workflow creation, triggers, and deployment strategies.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-code-owners-configuration": {
+      "description": "github-code-owners-configuration",
+      "prompt": "Assist in configuring code owners for effective code review assignment on GitHub. Cover CODEOWNERS file setup and team assignment.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-repository-settings-optimization": {
+      "description": "github-repository-settings-optimization",
+      "prompt": "Guide the optimization of repository settings on GitHub. Cover security settings, branch protection, and collaboration permissions.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-releases-versioning": {
+      "description": "github-releases-versioning",
+      "prompt": "Assist in managing version releases on GitHub. Cover tag creation, release notes drafting, and changelog updates.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-code-scanning-integration": {
+      "description": "github-code-scanning-integration",
+      "prompt": "Guide the integration of code scanning tools with GitHub. Cover security analysis, vulnerability identification, and remediation.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-discussions-community-engagement": {
+      "description": "github-discussions-community-engagement",
+      "prompt": "Assist in fostering community engagement through GitHub Discussions. Cover topic creation, moderation, and participation strategies.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-workflow-automation": {
+      "description": "github-workflow-automation",
+      "prompt": "Guide the automation of repetitive tasks in GitHub workflows. Cover workflow triggers, custom actions, and automation best practices.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-dependabot-configuration": {
+      "description": "github-dependabot-configuration",
+      "prompt": "Assist in configuring Dependabot for automated dependency updates on GitHub. Cover version constraints, update policies, and security checks.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-gitignore-file-creation": {
+      "description": "github-gitignore-file-creation",
+      "prompt": "Guide the creation of a .gitignore file for a GitHub repository. Cover common language and framework-specific entries.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-secret-management": {
+      "description": "github-secret-management",
+      "prompt": "Assist in managing secrets securely on GitHub. Cover secret creation, usage in workflows, and access control.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-organization-administration": {
+      "description": "github-organization-administration",
+      "prompt": "Guide the administration of a GitHub organization. Cover member management, repository organization, and team creation.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-code-metrics-analysis": {
+      "description": "github-code-metrics-analysis",
+      "prompt": "Assist in analyzing code metrics and statistics on GitHub. Cover tools integration, metric interpretation, and code quality improvement.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-actions-custom-scripts": {
+      "description": "github-actions-custom-scripts",
+      "prompt": "Guide the use of custom scripts in GitHub Actions workflows. Cover scripting languages, environment variables, and execution contexts.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-repository-archiving": {
+      "description": "github-repository-archiving",
+      "prompt": "Assist in archiving a GitHub repository. Cover archiving process, visibility changes, and project documentation.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-graphql-api-usage": {
+      "description": "github-graphql-api-usage",
+      "prompt": "Guide the usage of the GitHub GraphQL API for advanced querying and automation. Cover authentication, query structure, and response parsing.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "github-pages-deployment": {
+      "description": "github-pages-deployment",
+      "prompt": "Assist in deploying a project website using GitHub Pages. Cover branch selection, configuration, and custom domain setup.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-vm-deployment": {
+      "description": "azure-vm-deployment",
+      "prompt": "Guide the deployment of virtual machines on Azure. Cover VM configuration, image selection, and network settings.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-app-service-deployment": {
+      "description": "azure-app-service-deployment",
+      "prompt": "Assist in deploying web applications to Azure App Service. Cover deployment slots, environment configuration, and scaling options.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-cosmos-db-integration": {
+      "description": "azure-cosmos-db-integration",
+      "prompt": "Guide the integration of Azure Cosmos DB into applications. Cover data modeling, partitioning, and querying strategies.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-function-development": {
+      "description": "azure-function-development",
+      "prompt": "Assist in developing serverless functions with Azure Functions. Cover function creation, triggers, and bindings.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-storage-account-configuration": {
+      "description": "azure-storage-account-configuration",
+      "prompt": "Guide the configuration of Azure Storage accounts. Cover blob storage, table storage, and access control.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-devops-pipeline-setup": {
+      "description": "azure-devops-pipeline-setup",
+      "prompt": "Assist in setting up continuous integration/continuous deployment (CI/CD) pipelines with Azure DevOps. Cover pipeline creation, triggers, and artifact management.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-ai-services-integration": {
+      "description": "azure-ai-services-integration",
+      "prompt": "Guide the integration of Azure AI services into applications. Cover cognitive services, machine learning models, and natural language processing.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-logic-app-development": {
+      "description": "azure-logic-app-development",
+      "prompt": "Assist in developing workflows using Azure Logic Apps. Cover trigger configuration, actions, and error handling.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-service-bus-implementation": {
+      "description": "azure-service-bus-implementation",
+      "prompt": "Guide the implementation of message queues and topics with Azure Service Bus. Cover message publishing, subscription, and error handling.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-aks-kubernetes-deployment": {
+      "description": "azure-aks-kubernetes-deployment",
+      "prompt": "Assist in deploying applications to Azure Kubernetes Service (AKS). Cover cluster creation, pod deployment, and scaling.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-function-app-configuration": {
+      "description": "azure-function-app-configuration",
+      "prompt": "Guide the configuration of Azure Function Apps. Cover environment variables, application settings, and deployment options.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-compute-engine-deployment": {
+      "description": "google-cloud-compute-engine-deployment",
+      "prompt": "Assist in deploying virtual machines on Google Cloud Compute Engine. Cover machine type selection, image configuration, and network setup.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-app-engine-deployment": {
+      "description": "google-cloud-app-engine-deployment",
+      "prompt": "Guide the deployment of web applications to Google Cloud App Engine. Cover environment configuration, scaling options, and traffic splitting.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-spanner-database-usage": {
+      "description": "google-cloud-spanner-database-usage",
+      "prompt": "Assist in using Google Cloud Spanner for globally distributed databases. Cover schema design, transactions, and SQL querying.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-functions-development": {
+      "description": "google-cloud-functions-development",
+      "prompt": "Guide the development of serverless functions with Google Cloud Functions. Cover function creation, triggers, and environment variables.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-storage-integration": {
+      "description": "google-cloud-storage-integration",
+      "prompt": "Assist in integrating Google Cloud Storage into applications. Cover bucket creation, file uploads, and access control.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-build-pipeline-setup": {
+      "description": "google-cloud-build-pipeline-setup",
+      "prompt": "Guide the setup of CI/CD pipelines with Google Cloud Build. Cover build configuration, triggers, and artifact storage.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-ai-platform-integration": {
+      "description": "google-cloud-ai-platform-integration",
+      "prompt": "Assist in integrating machine learning models with Google Cloud AI Platform. Cover model deployment, prediction requests, and versioning.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-dataflow-pipeline-development": {
+      "description": "google-cloud-dataflow-pipeline-development",
+      "prompt": "Guide the development of data processing pipelines with Google Cloud Dataflow. Cover pipeline design, transformations, and streaming processing.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-pubsub-implementation": {
+      "description": "google-cloud-pubsub-implementation",
+      "prompt": "Assist in implementing publish/subscribe messaging with Google Cloud Pub/Sub. Cover topic creation, message publishing, and subscription management.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-gke-kubernetes-deployment": {
+      "description": "google-cloud-gke-kubernetes-deployment",
+      "prompt": "Guide the deployment of applications to Google Kubernetes Engine (GKE). Cover cluster creation, pod deployment, and scaling.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-cloud-functions-configuration": {
+      "description": "google-cloud-cloud-functions-configuration",
+      "prompt": "Guide the configuration of Google Cloud Cloud Functions. Cover environment variables, function triggers, and deployment options.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-cognitive-search-integration": {
+      "description": "azure-cognitive-search-integration",
+      "prompt": "Assist in integrating Azure Cognitive Search into applications. Cover index creation, search queries, and result handling.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-notification-hub-implementation": {
+      "description": "azure-notification-hub-implementation",
+      "prompt": "Guide the implementation of push notifications with Azure Notification Hub. Cover registration, message sending, and platform-specific configurations.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-api-management-configuration": {
+      "description": "azure-api-management-configuration",
+      "prompt": "Assist in configuring Azure API Management for API governance. Cover API creation, versioning, and access policies.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-iot-hub-device-communication": {
+      "description": "azure-iot-hub-device-communication",
+      "prompt": "Guide device communication using Azure IoT Hub. Cover device registration, telemetry messages, and command handling.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-natural-language-processing": {
+      "description": "google-cloud-natural-language-processing",
+      "prompt": "Assist in natural language processing tasks using Google Cloud Natural Language API. Cover sentiment analysis, entity recognition, and syntax analysis.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-translate-api-integration": {
+      "description": "google-cloud-translate-api-integration",
+      "prompt": "Guide the integration of Google Cloud Translate API for text translation. Cover language detection, translation requests, and result handling.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-bigquery-usage": {
+      "description": "google-cloud-bigquery-usage",
+      "prompt": "Assist in using Google Cloud BigQuery for analytics and data warehousing. Cover SQL querying, table schema design, and data visualization.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-secret-manager-configuration": {
+      "description": "google-cloud-secret-manager-configuration",
+      "prompt": "Guide the configuration of Google Cloud Secret Manager for secure secret storage. Cover secret creation, access control, and rotation policies.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-vertex-ai-model-deployment": {
+      "description": "google-cloud-vertex-ai-model-deployment",
+      "prompt": "Assist in deploying machine learning models with Google Cloud Vertex AI. Cover model versioning, deployment options, and prediction requests.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-dataprep-pipeline-development": {
+      "description": "google-cloud-dataprep-pipeline-development",
+      "prompt": "Guide the development of data preparation pipelines with Google Cloud Dataprep. Cover data cleaning, transformation, and enrichment.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-identity-platform-integration": {
+      "description": "google-cloud-identity-platform-integration",
+      "prompt": "Assist in integrating Google Cloud Identity Platform for user authentication. Cover user registration, login flows, and access control.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "google-cloud-memorystore-redis-usage": {
+      "description": "google-cloud-memorystore-redis-usage",
+      "prompt": "Guide the usage of Google Cloud Memorystore for Redis. Cover instance creation, data storage, and access control.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-signalr-service-integration": {
+      "description": "azure-signalr-service-integration",
+      "prompt": "Assist in integrating Azure SignalR Service for real-time communication. Cover hub creation, connection management, and message broadcasting.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-durable-functions-development": {
+      "description": "azure-durable-functions-development",
+      "prompt": "Guide the development of workflows using Azure Durable Functions. Cover orchestrator functions, activity functions, and stateful workflows.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-container-instances-deployment": {
+      "description": "azure-container-instances-deployment",
+      "prompt": "Assist in deploying applications to Azure Container Instances. Cover container image selection, instance creation, and scaling options.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-front-door-configuration": {
+      "description": "azure-front-door-configuration",
+      "prompt": "Guide the configuration of Azure Front Door for global load balancing and security. Cover routing rules, backend pools, and caching settings.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-logic-app-custom-connector-development": {
+      "description": "azure-logic-app-custom-connector-development",
+      "prompt": "Assist in developing custom connectors for Azure Logic Apps. Cover authentication methods, action triggers, and connector testing.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "azure-app-gateway-configuration": {
+      "description": "azure-app-gateway-configuration",
+      "prompt": "Guide the configuration of Azure Application Gateway for web application delivery. Cover routing rules, SSL termination, and WAF settings.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "web-app-architecture-design": {
+      "description": "web-app-architecture-design",
+      "prompt": "Guide the design of the architecture for a web application. Cover front-end, back-end, database, and communication patterns.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "responsive-design-optimization": {
+      "description": "responsive-design-optimization",
+      "prompt": "Assist in optimizing a web application for responsive design. Cover media queries, flexible grids, and image optimization.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "web-app-security-review": {
+      "description": "web-app-security-review",
+      "prompt": "Conduct a security review of a web application. Cover authentication mechanisms, data encryption, and vulnerability scanning.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "restful-api-design-guidelines": {
+      "description": "restful-api-design-guidelines",
+      "prompt": "Provide guidelines for designing RESTful APIs. Cover resource naming, HTTP methods, and error handling.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "graphql-api-implementation": {
+      "description": "graphql-api-implementation",
+      "prompt": "Guide the implementation of a GraphQL API. Cover schema definition, queries, mutations, and resolvers.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "web-app-user-authentication-flow": {
+      "description": "web-app-user-authentication-flow",
+      "prompt": "Guide the implementation of a user authentication flow in a web application. Cover registration, login, and password reset.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "single-page-application-development": {
+      "description": "single-page-application-development",
+      "prompt": "Assist in developing a single-page application (SPA). Cover client-side routing, state management, and API integration.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "web-app-internationalization": {
+      "description": "web-app-internationalization",
+      "prompt": "Guide the internationalization (i18n) of a web application. Cover language detection, translation integration, and locale management.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "web-app-accessibility-improvement": {
+      "description": "web-app-accessibility-improvement",
+      "prompt": "Assist in improving accessibility in a web application. Cover ARIA roles, keyboard navigation, and screen reader compatibility.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "web-app-performance-optimization": {
+      "description": "web-app-performance-optimization",
+      "prompt": "Guide the optimization of a web application for performance. Cover code splitting, lazy loading, and image compression.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "add-logging-to-function": {
+      "description": "add-logging-to-function",
+      "prompt": "Using the context code, add appropriate logging statements to enhance function traceability and debugging.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "optimize-database-query": {
+      "description": "optimize-database-query",
+      "prompt": "Analyze the context code and optimize a specific database query for better performance without compromising functionality.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-authentication-middleware": {
+      "description": "implement-authentication-middleware",
+      "prompt": "Utilize the context code to implement middleware for user authentication, ensuring secure access to protected routes.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "refactor-code-to-use-design-pattern": {
+      "description": "refactor-code-to-use-design-pattern",
+      "prompt": "Refactor the selected code portion to adhere to a specific design pattern (e.g., Singleton, Observer, Factory) for improved maintainability.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "integrate-third-party-library": {
+      "description": "integrate-third-party-library",
+      "prompt": "Based on the context code, integrate a specified third-party library to enhance functionality. Provide necessary configuration if applicable.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "apply-code-style-formatting": {
+      "description": "apply-code-style-formatting",
+      "prompt": "Using the context code, apply consistent code style formatting according to established guidelines, improving readability and maintainability.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-caching-strategy": {
+      "description": "implement-caching-strategy",
+      "prompt": "Analyze the context code and implement an appropriate caching strategy to enhance performance and reduce redundant computations.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "fix-security-vulnerability": {
+      "description": "fix-security-vulnerability",
+      "prompt": "Identify and address a specific security vulnerability within the selected code, implementing necessary safeguards.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "add-unit-tests-to-function": {
+      "description": "add-unit-tests-to-function",
+      "prompt": "Based on the context code, add unit tests to a specific function, ensuring comprehensive test coverage for reliable code.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "apply-code-splitting": {
+      "description": "apply-code-splitting",
+      "prompt": "Analyze the context code and apply code splitting techniques to improve loading times, especially in web applications.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-feature-toggle": {
+      "description": "implement-feature-toggle",
+      "prompt": "Utilize the context code to implement a feature toggle mechanism, allowing for easy feature activation/deactivation.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "update-dependency-versions": {
+      "description": "update-dependency-versions",
+      "prompt": "Review the context code and update outdated dependencies to their latest versions, ensuring compatibility and security.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "apply-async-await-pattern": {
+      "description": "apply-async-await-pattern",
+      "prompt": "Refactor the selected code to utilize the async/await pattern for asynchronous operations, improving code readability.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-error-handling-strategy": {
+      "description": "implement-error-handling-strategy",
+      "prompt": "Based on the context code, implement a robust error handling strategy for better resilience and user experience.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "add-comments-documentation": {
+      "description": "add-comments-documentation",
+      "prompt": "Enhance the context code by adding comprehensive comments and documentation to improve code understanding and maintainability.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-microservices-communication": {
+      "description": "implement-microservices-communication",
+      "prompt": "Utilize the context code to implement or optimize communication between microservices, ensuring efficient data exchange.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "apply-graphql-schema-design": {
+      "description": "apply-graphql-schema-design",
+      "prompt": "Refactor or create GraphQL schemas in the selected code, adhering to best practices for effective data querying and mutation.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-authorization-middleware": {
+      "description": "implement-authorization-middleware",
+      "prompt": "Based on the context code, implement middleware for user authorization, ensuring secure access to specific resources.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "apply-code-review-feedback": {
+      "description": "apply-code-review-feedback",
+      "prompt": "Address specific feedback from a code review by making necessary changes or improvements to the selected code.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-websockets-communication": {
+      "description": "implement-websockets-communication",
+      "prompt": "Utilize the context code to implement or optimize communication using Websockets, enabling real-time interactions.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "optimize-image-loading": {
+      "description": "optimize-image-loading",
+      "prompt": "Analyze the context code and optimize the loading of images, considering lazy loading, responsive images, and image compression.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-oauth-authentication": {
+      "description": "implement-oauth-authentication",
+      "prompt": "Utilize the context code to implement OAuth authentication, enabling secure and standardized user authentication.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "apply-ci-cd-pipeline-setup": {
+      "description": "apply-ci-cd-pipeline-setup",
+      "prompt": "Based on the context code, set up a CI/CD pipeline to automate the build, test, and deployment processes.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-cors-configuration": {
+      "description": "implement-cors-configuration",
+      "prompt": "Utilize the context code to configure Cross-Origin Resource Sharing (CORS) for secure communication between web applications.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "apply-mvc-architecture": {
+      "description": "apply-mvc-architecture",
+      "prompt": "Refactor the selected code to adhere to the Model-View-Controller (MVC) architecture for better code organization and separation of concerns.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-rate-limiting-strategy": {
+      "description": "implement-rate-limiting-strategy",
+      "prompt": "Based on the context code, implement a rate limiting strategy to prevent abuse and ensure fair usage of resources.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "add-environment-variable-configuration": {
+      "description": "add-environment-variable-configuration",
+      "prompt": "Enhance the context code by adding proper configuration using environment variables for improved flexibility and security.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "apply-memoization-technique": {
+      "description": "apply-memoization-technique",
+      "prompt": "Analyze the context code and apply memoization techniques to optimize computationally expensive function calls.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-ssl-tls-encryption": {
+      "description": "implement-ssl-tls-encryption",
+      "prompt": "Utilize the context code to implement SSL/TLS encryption for secure communication between clients and servers.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "apply-pagination-to-data-fetching": {
+      "description": "apply-pagination-to-data-fetching",
+      "prompt": "Refactor the selected code to implement pagination when fetching data, enhancing performance and user experience.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-serverless-function": {
+      "description": "implement-serverless-function",
+      "prompt": "Utilize the context code to implement a serverless function, taking advantage of serverless computing for specific tasks.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "add-code-comments-for-clarity": {
+      "description": "add-code-comments-for-clarity",
+      "prompt": "Enhance the context code by adding comments to clarify complex logic or provide context for future developers.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "apply-redis-caching-strategy": {
+      "description": "apply-redis-caching-strategy",
+      "prompt": "Analyze the context code and implement Redis caching to optimize data retrieval and improve overall application performance.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-state-management-pattern": {
+      "description": "implement-state-management-pattern",
+      "prompt": "Refactor the selected code to implement a state management pattern (e.g., Redux, Vuex) for better handling of application state.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "optimize-css-for-performance": {
+      "description": "optimize-css-for-performance",
+      "prompt": "Analyze the context code and optimize CSS for better performance, considering minification, bundling, and critical path rendering.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-webhooks-for-event-handling": {
+      "description": "implement-webhooks-for-event-handling",
+      "prompt": "Utilize the context code to implement webhooks for handling asynchronous events, enabling real-time updates and integrations.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-optimize-query-performance": {
+      "description": "sql-optimize-query-performance",
+      "prompt": "Analyze the context SQL query and optimize it for better performance, considering indexes, query structure, and execution plan.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-add-foreign-key-constraint": {
+      "description": "sql-add-foreign-key-constraint",
+      "prompt": "Utilize the context SQL code to add a foreign key constraint between specified tables, ensuring data integrity.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-implement-stored-procedure": {
+      "description": "sql-implement-stored-procedure",
+      "prompt": "Based on the context SQL code, implement a stored procedure to encapsulate a specific set of database operations for reuse and security.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-refactor-database-schema": {
+      "description": "sql-refactor-database-schema",
+      "prompt": "Refactor the selected SQL database schema to enhance organization, normalization, and overall database structure.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-create-database-view": {
+      "description": "sql-create-database-view",
+      "prompt": "Utilize the context SQL code to create a database view that presents data in a specific way, improving query simplicity and reusability.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-optimize-indexing-strategy": {
+      "description": "sql-optimize-indexing-strategy",
+      "prompt": "Analyze the context SQL code and optimize the indexing strategy to improve query performance and minimize resource usage.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-implement-database-triggers": {
+      "description": "sql-implement-database-triggers",
+      "prompt": "Utilize the context SQL code to implement database triggers for automated response to specific events, ensuring data consistency.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-migrate-data-between-tables": {
+      "description": "sql-migrate-data-between-tables",
+      "prompt": "Based on the context SQL code, migrate data between specified tables, considering data transformation and integrity.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-implement-full-text-search": {
+      "description": "sql-implement-full-text-search",
+      "prompt": "Utilize the context SQL code to implement full-text search functionality, enabling more comprehensive and efficient text-based queries.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-refactor-query-for-readability": {
+      "description": "sql-refactor-query-for-readability",
+      "prompt": "Refactor the selected SQL query for improved readability, applying formatting and structuring changes.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-implement-database-index-partitioning": {
+      "description": "sql-implement-database-index-partitioning",
+      "prompt": "Utilize the context SQL code to implement index partitioning for large tables, enhancing query performance and maintenance.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-create-database-function": {
+      "description": "sql-create-database-function",
+      "prompt": "Based on the context SQL code, create a database function to encapsulate a specific computation or transformation for reuse.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-optimize-database-joins": {
+      "description": "sql-optimize-database-joins",
+      "prompt": "Analyze the context SQL code and optimize database joins for improved query performance, considering index usage.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-implement-transaction-management": {
+      "description": "sql-implement-transaction-management",
+      "prompt": "Utilize the context SQL code to implement transaction management for ensuring data consistency and integrity in multi-statement operations.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-create-database-index": {
+      "description": "sql-create-database-index",
+      "prompt": "Create a new database index in the context SQL code to improve query performance based on specific query patterns.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-migrate-database-to-new-schema": {
+      "description": "sql-migrate-database-to-new-schema",
+      "prompt": "Utilize the context SQL code to migrate the database to a new schema, considering data transformation and schema evolution.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-implement-views-for-reporting": {
+      "description": "sql-implement-views-for-reporting",
+      "prompt": "Based on the context SQL code, implement database views specifically designed for reporting purposes, aggregating and presenting data.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-create-database-trigger": {
+      "description": "sql-create-database-trigger",
+      "prompt": "Create a new database trigger in the context SQL code to automatically respond to specific data changes or events.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-implement-database-security-measures": {
+      "description": "sql-implement-database-security-measures",
+      "prompt": "Utilize the context SQL code to implement security measures such as role-based access control (RBAC) and encryption for the database.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-implement-database-backup-strategy": {
+      "description": "sql-implement-database-backup-strategy",
+      "prompt": "Based on the context SQL code, implement a robust database backup strategy to ensure data recovery and integrity.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-refactor-database-indexes": {
+      "description": "sql-refactor-database-indexes",
+      "prompt": "Refactor the selected SQL code to optimize existing database indexes for better query performance and resource usage.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-implement-database-partitioning": {
+      "description": "sql-implement-database-partitioning",
+      "prompt": "Utilize the context SQL code to implement database partitioning for improved data management and query performance.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-create-database-materialized-view": {
+      "description": "sql-create-database-materialized-view",
+      "prompt": "Create a new materialized view in the context SQL code to store and efficiently query precomputed aggregates or joins.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-implement-database-auditing": {
+      "description": "sql-implement-database-auditing",
+      "prompt": "Based on the context SQL code, implement auditing mechanisms for tracking and recording database changes and access.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-refactor-database-relationships": {
+      "description": "sql-refactor-database-relationships",
+      "prompt": "Refactor the selected SQL code to optimize database relationships, ensuring proper normalization and efficient query execution.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-create-database-materialized-index": {
+      "description": "sql-create-database-materialized-index",
+      "prompt": "Create a new materialized index in the context SQL code to optimize specific queries by precomputing and storing index data.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-implement-database-replication": {
+      "description": "sql-implement-database-replication",
+      "prompt": "Utilize the context SQL code to implement database replication for achieving high availability and data redundancy.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-create-database-snapshot": {
+      "description": "sql-create-database-snapshot",
+      "prompt": "Create a new database snapshot in the context SQL code to capture the state of the database at a specific point in time.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-refactor-database-query-joins": {
+      "description": "sql-refactor-database-query-joins",
+      "prompt": "Refactor the selected SQL code to optimize and clarify database query joins, improving readability and performance.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-create-database-transaction-log": {
+      "description": "sql-create-database-transaction-log",
+      "prompt": "Create a new transaction log in the context SQL code to record and track changes made to the database for recovery purposes.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-implement-database-sharding": {
+      "description": "sql-implement-database-sharding",
+      "prompt": "Utilize the context SQL code to implement database sharding for horizontal partitioning of data, enhancing scalability.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-create-database-data-masking": {
+      "description": "sql-create-database-data-masking",
+      "prompt": "Create data masking mechanisms in the context SQL code to protect sensitive information from unauthorized access.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-implement-database-change-tracking": {
+      "description": "sql-implement-database-change-tracking",
+      "prompt": "Utilize the context SQL code to implement change tracking mechanisms for monitoring and auditing database modifications.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-create-database-query-optimization-plan": {
+      "description": "sql-create-database-query-optimization-plan",
+      "prompt": "Create a comprehensive plan in the context SQL code for ongoing query optimization, considering usage patterns and performance metrics.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "sql-implement-database-data-archiving": {
+      "description": "sql-implement-database-data-archiving",
+      "prompt": "Utilize the context SQL code to implement data archiving strategies for efficient long-term storage and retrieval.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "extract-method": {
+      "description": "extract-method",
+      "prompt": "Extract a selected code block into a separate method or function, improving code modularity and readability.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "optimize-import-statements": {
+      "description": "optimize-import-statements",
+      "prompt": "Optimize and organize import statements in the current file, removing unused imports and arranging them alphabetically.",
+      "context": {
+        "currentFile": true
+      }
+    },
+    "create-unit-test-skeleton": {
+      "description": "create-unit-test-skeleton",
+      "prompt": "Generate a skeleton for unit tests for the currently selected function or method, ensuring comprehensive test coverage.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "check-variable-naming-conventions": {
+      "description": "check-variable-naming-conventions",
+      "prompt": "Check and provide feedback on variable naming conventions in the current file, ensuring adherence to best practices.",
+      "context": {
+        "currentFile": true
+      }
+    },
+    "generate-random-test-data": {
+      "description": "generate-random-test-data",
+      "prompt": "Generate random test data based on the structure of the currently selected data model or class, facilitating testing.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "apply-code-review-suggestions": {
+      "description": "apply-code-review-suggestions",
+      "prompt": "Apply suggestions from a code review tool or checklist to the currently open files, addressing feedback and improving code quality.",
+      "context": {
+        "openTabs": true
+      }
+    },
+    "run-code-coverage-analysis": {
+      "description": "run-code-coverage-analysis",
+      "prompt": "Run code coverage analysis on the current test suite, providing insights into which parts of the code are covered by tests.",
+      "context": {
+        "currentFile": true
+      }
+    },
+    "implement-design-pattern": {
+      "description": "implement-design-pattern",
+      "prompt": "Implement a selected design pattern in the current codebase, promoting maintainability and scalability.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "analyze-runtime-complexity": {
+      "description": "analyze-runtime-complexity",
+      "prompt": "Analyze the runtime complexity of the currently selected algorithm or function, providing insights into efficiency.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-custom-exception-handling": {
+      "description": "implement-custom-exception-handling",
+      "prompt": "Implement custom exception handling logic in the current file, ensuring robust error management.",
+      "context": {
+        "currentFile": true
+      }
+    },
+    "evaluate-dependency-vulnerabilities": {
+      "description": "evaluate-dependency-vulnerabilities",
+      "prompt": "Evaluate and list potential vulnerabilities in the dependencies of the current project, prioritizing security.",
+      "context": {
+        "currentDir": true
+      }
+    },
+    "generate-api-documentation": {
+      "description": "generate-api-documentation",
+      "prompt": "Generate API documentation for the current project based on the available routes and endpoints, promoting clarity and understanding.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-singleton-pattern": {
+      "description": "implement-singleton-pattern",
+      "prompt": "Implement the Singleton design pattern in the current codebase, ensuring a single instance of a class is created.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "analyze-algorithmic-complexity": {
+      "description": "analyze-algorithmic-complexity",
+      "prompt": "Analyze the algorithmic complexity of the currently selected algorithm, providing insights into its efficiency and scalability.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "apply-refactoring-suggestions": {
+      "description": "apply-refactoring-suggestions",
+      "prompt": "Apply automated refactoring suggestions to the currently open files, improving code structure and maintainability.",
+      "context": {
+        "openTabs": true
+      }
+    },
+    "implement-factory-method-pattern": {
+      "description": "implement-factory-method-pattern",
+      "prompt": "Implement the Factory Method design pattern in the current codebase, providing an interface for object creation.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "evaluate-code-quality-metrics": {
+      "description": "evaluate-code-quality-metrics",
+      "prompt": "Evaluate and display code quality metrics for the current project, highlighting areas for improvement.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-observer-pattern": {
+      "description": "implement-observer-pattern",
+      "prompt": "Implement the Observer design pattern in the current codebase, facilitating a one-to-many dependency between objects.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "analyze-memory-usage": {
+      "description": "analyze-memory-usage",
+      "prompt": "Analyze and report memory usage patterns in the current codebase, identifying areas for optimization and efficiency.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-prototype-pattern": {
+      "description": "implement-prototype-pattern",
+      "prompt": "Implement the Prototype design pattern in the current codebase, allowing object creation through cloning.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "evaluate-code-duplication": {
+      "description": "evaluate-code-duplication",
+      "prompt": "Evaluate and identify code duplication in the current project, suggesting areas for consolidation and improvement.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-command-pattern": {
+      "description": "implement-command-pattern",
+      "prompt": "Implement the Command design pattern in the current codebase, encapsulating a request as an object.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "analyze-network-request-performance": {
+      "description": "analyze-network-request-performance",
+      "prompt": "Analyze and report the performance of network requests in the current codebase, identifying areas for optimization.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-state-pattern": {
+      "description": "implement-state-pattern",
+      "prompt": "Implement the State design pattern in the current codebase, allowing an object to alter its behavior when its internal state changes.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "apply-code-formatting": {
+      "description": "apply-code-formatting",
+      "prompt": "Apply consistent code formatting to the currently open files, adhering to established coding standards.",
+      "context": {
+        "openTabs": true
+      }
+    },
+    "optimize-database-indexing": {
+      "description": "optimize-database-indexing",
+      "prompt": "Optimize the indexing strategy for the current database schema, improving query performance and resource usage.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-strategy-pattern": {
+      "description": "implement-strategy-pattern",
+      "prompt": "Implement the Strategy design pattern in the current codebase, defining a family of algorithms, encapsulating each one, and making them interchangeable.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "evaluate-code-cyclomatic-complexity": {
+      "description": "evaluate-code-cyclomatic-complexity",
+      "prompt": "Evaluate and report code cyclomatic complexity in the current project, identifying areas for simplification and improvement.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-template-method-pattern": {
+      "description": "implement-template-method-pattern",
+      "prompt": "Implement the Template Method design pattern in the current codebase, defining the skeleton of an algorithm in the superclass but letting subclasses override specific steps.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "analyze-security-vulnerabilities": {
+      "description": "analyze-security-vulnerabilities",
+      "prompt": "Analyze and report security vulnerabilities in the current project, prioritizing and addressing potential risks.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-visitor-pattern": {
+      "description": "implement-visitor-pattern",
+      "prompt": "Implement the Visitor design pattern in the current codebase, defining a new operation without changing the classes of the elements on which it operates.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "evaluate-code-testability": {
+      "description": "evaluate-code-testability",
+      "prompt": "Evaluate and provide feedback on code testability in the current project, suggesting improvements for better test coverage.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "install-missing-python-packages": {
+      "description": "install-missing-python-packages",
+      "prompt": "Scan the current codebase and install any missing Python packages specified in import statements.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "analyze-python-code-style": {
+      "description": "analyze-python-code-style",
+      "prompt": "Analyze the Python code style in the current file, providing feedback on adherence to PEP 8 and suggesting improvements.",
+      "context": {
+        "currentFile": true
+      }
+    },
+    "create-virtual-environment": {
+      "description": "create-virtual-environment",
+      "prompt": "Create a virtual environment for the current project, isolating dependencies and ensuring version compatibility.",
+      "context": {
+        "currentDir": true
+      }
+    },
+    "generate-python-docstrings": {
+      "description": "generate-python-docstrings",
+      "prompt": "Generate docstrings for functions and classes in the current Python file, enhancing code documentation.",
+      "context": {
+        "currentFile": true
+      }
+    },
+    "optimize-python-imports": {
+      "description": "optimize-python-imports",
+      "prompt": "Optimize and organize import statements in the current Python file, removing unused imports and arranging them alphabetically.",
+      "context": {
+        "currentFile": true
+      }
+    },
+    "run-python-tests": {
+      "description": "run-python-tests",
+      "prompt": "Run all Python tests in the current project, providing test results and identifying any failures or errors.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "check-python-type-hints": {
+      "description": "check-python-type-hints",
+      "prompt": "Check and validate type hints in the current Python file, ensuring compatibility and correctness.",
+      "context": {
+        "currentFile": true
+      }
+    },
+    "lint-python-code": {
+      "description": "lint-python-code",
+      "prompt": "Lint the current Python file using a specified linter, providing feedback on potential issues and adherence to coding standards.",
+      "context": {
+        "currentFile": true
+      }
+    },
+    "profile-python-code": {
+      "description": "profile-python-code",
+      "prompt": "Profile the current Python code, identifying performance bottlenecks and areas for optimization.",
+      "context": {
+        "currentFile": true
+      }
+    },
+    "update-python-dependencies": {
+      "description": "update-python-dependencies",
+      "prompt": "Update all Python dependencies in the current project to their latest compatible versions, ensuring security and feature updates.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "generate-python-test-skeleton": {
+      "description": "generate-python-test-skeleton",
+      "prompt": "Generate a skeleton for Python unit tests for the currently selected function or class, ensuring comprehensive test coverage.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "check-python-coding-standards": {
+      "description": "check-python-coding-standards",
+      "prompt": "Check and provide feedback on Python coding standards in the current file, ensuring adherence to best practices.",
+      "context": {
+        "currentFile": true
+      }
+    },
+    "evaluate-python-code-complexity": {
+      "description": "evaluate-python-code-complexity",
+      "prompt": "Evaluate and report code complexity metrics for the current Python project, identifying areas for simplification and improvement.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "document-python-module-dependencies": {
+      "description": "document-python-module-dependencies",
+      "prompt": "Document and display the dependencies between Python modules in the current project, providing a visual representation.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "debug-python-code": {
+      "description": "debug-python-code",
+      "prompt": "Debug the current Python code using a specified debugger, helping identify and fix issues in the code.",
+      "context": {
+        "currentFile": true
+      }
+    },
+    "analyze-python-package-vulnerabilities": {
+      "description": "analyze-python-package-vulnerabilities",
+      "prompt": "Analyze and list potential security vulnerabilities in the Python packages used by the current project.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "generate-python-api-documentation": {
+      "description": "generate-python-api-documentation",
+      "prompt": "Generate API documentation for Python functions and classes in the current project, promoting clarity and understanding.",
+      "context": {
+        "codebase": true
+      }
+    },
+    "implement-python-design-pattern": {
+      "description": "implement-python-design-pattern",
+      "prompt": "Implement a selected design pattern in the current Python codebase, promoting maintainability and scalability.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "evaluate-python-test-coverage": {
+      "description": "evaluate-python-test-coverage",
+      "prompt": "Evaluate and report test coverage for Python code in the current project, identifying areas with insufficient testing.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "apply-python-refactoring-suggestions": {
+      "description": "apply-python-refactoring-suggestions",
+      "prompt": "Apply automated refactoring suggestions to the currently open Python files, improving code structure and maintainability.",
+      "context": {
+        "openTabs": true
+      }
+    },
+    "optimize-python-memory-usage": {
+      "description": "optimize-python-memory-usage",
+      "prompt": "Optimize memory usage in the current Python codebase, identifying and addressing areas of high memory consumption.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-python-exception-handling": {
+      "description": "implement-python-exception-handling",
+      "prompt": "Implement custom exception handling logic in the current Python file, ensuring robust error management.",
+      "context": {
+        "currentFile": true
+      }
+    },
+    "evaluate-python-dependency-licenses": {
+      "description": "evaluate-python-dependency-licenses",
+      "prompt": "Evaluate and report the licenses of dependencies used in the current Python project, ensuring compliance.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "generate-python-random-test-data": {
+      "description": "generate-python-random-test-data",
+      "prompt": "Generate random test data based on the structure of the currently selected data model or class in Python, facilitating testing.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "check-python-syntax-errors": {
+      "description": "check-python-syntax-errors",
+      "prompt": "Check and identify syntax errors in the current Python file, providing feedback for quick resolution.",
+      "context": {
+        "currentFile": true
+      }
+    },
+    "evaluate-python-code-duplication": {
+      "description": "evaluate-python-code-duplication",
+      "prompt": "Evaluate and identify code duplication in the current Python project, suggesting areas for consolidation and improvement.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-python-singleton-pattern": {
+      "description": "implement-python-singleton-pattern",
+      "prompt": "Implement the Singleton design pattern in the current Python codebase, ensuring a single instance of a class is created.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "evaluate-python-api-security": {
+      "description": "evaluate-python-api-security",
+      "prompt": "Evaluate and report security vulnerabilities in the API endpoints of the current Python project, prioritizing and addressing potential risks.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-python-factory-method-pattern": {
+      "description": "implement-python-factory-method-pattern",
+      "prompt": "Implement the Factory Method design pattern in the current Python codebase, providing an interface for object creation.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "evaluate-python-code-testability": {
+      "description": "evaluate-python-code-testability",
+      "prompt": "Evaluate and provide feedback on code testability in the current Python project, suggesting improvements for better test coverage.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "analyze-python-network-request-performance": {
+      "description": "analyze-python-network-request-performance",
+      "prompt": "Analyze and report the performance of network requests in the current Python project, identifying areas for optimization.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    },
+    "implement-python-state-pattern": {
+      "description": "implement-python-state-pattern",
+      "prompt": "Implement the State design pattern in the current Python codebase, allowing an object to alter its behavior when its internal state changes.",
+      "context": {
+        "codebase": true,
+        "selection": true
+      }
+    }
+  }
+}
