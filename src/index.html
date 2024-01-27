@@ -78,6 +78,18 @@
     </i>
    </div>
 
+<!-- Pre-made Command Dropdown -->
+<div>
+  <label for="premadeCommands">
+   Select Pre-made Command (Optional):
+  </label>
+  <select id="premadeCommands" onchange="fillForm()">
+   <option disabled="" selected="" value="">
+    Select a pre-made command
+   </option>
+  </select>
+ </div>
+
    <!-- Command Name Input -->
    <div>
     <label for="commandName">
@@ -155,18 +167,6 @@
      Command Note:
     </label>
     <input id="commandNote" placeholder="Enter command note (optional)" title="Optional additional note." type="text"/>
-   </div>
-
-   <!-- Pre-made Command Dropdown -->
-   <div>
-    <label for="premadeCommands">
-     Select Pre-made Command (Made By Kynlo):
-    </label>
-    <select id="premadeCommands" onchange="fillForm()">
-     <option disabled="" selected="" value="">
-      Select a pre-made command
-     </option>
-    </select>
    </div>
 
    <!-- Show JSON Data Button -->
