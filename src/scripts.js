@@ -216,6 +216,10 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+            var modal = document.getElementById('customCommandViewerModal');
+            if (event.target == modal) {
+            modal.style.display = 'none';
+            }
         }
 
         // Function to copy JSON to clipboard
@@ -275,4 +279,18 @@
         fetchGitHubUpdates();
   
 
-  
+        // Function to open the Custom Command Viewer Modal
+        function openCustomCommandViewerModal() {
+            var modal = document.getElementById('customCommandViewerModal');
+            modal.style.display = 'block';
+        }
+        
+        // Function to close the Custom Command Viewer Modal
+        function closeCustomCommandViewerModal() {
+            var modal = document.getElementById('customCommandViewerModal');
+            modal.style.display = 'none';
+        }
+        
+        // Close the modal if the user clicks outside of it
+
+
