@@ -6,7 +6,7 @@ Codyception is a web-based tool designed to streamline the process of creating c
 
 - **Custom Command Creation**: Users can create unique commands for Cody AI with specific names, prompts, and context options.
 - **Pre-made Commands**: A selection of pre-made commands designed by Kynlo to get users started quickly.
-- - **Custom Command Browser**: View and search all the custom commands easily.
+- **Custom Command Browser**: View and search all the custom commands easily.
 - **Dark Mode**: A toggleable dark mode for a comfortable coding experience in different lighting conditions.
 - **Responsive Design**: The website is fully responsive, ensuring a seamless experience on both desktop and mobile devices.
 - **Sidebar Navigation**: Quick access to related resources such as Discord, GitHub, Sourcegraph, Docs, and the Sourcegraph Blog.
