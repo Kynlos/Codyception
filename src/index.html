@@ -23,12 +23,13 @@
  <body>
   <div id="customCommandViewerModal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeCustomCommandViewerModal()">&times;</span>
+      <!-- Removed inline onclick handler and ensured class="close" is present -->
+      <span class="close">&times;</span>
       <iframe id="customCommandViewerFrame" src="commands.html" style="width:100%; height:80vh;" frameborder="0"></iframe>
     </div>
   </div>
   <!-- Sidebar -->
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
    <nav class="sidebar-nav">
     <a class="sidebar-link" href="https://discord.com/servers/sourcegraph-969688426372825169" target="_blank">
      <i class="fab fa-discord">
@@ -125,11 +126,7 @@
      Command Context (Click an item to select):
     </label>
     <div class="context-options" id="contextOptions">
-     <div class="context-option" data-value="codebase" title="Include results from embeddings/keyword code search as snippets.">
-      <i class="fa fa-database">
-      </i>
-      codebase
-     </div>
+
      <div class="context-option" data-value="selection" title="Include currently selected code from editor.">
       <i class="fa fa-i-cursor">
       </i>
@@ -186,18 +183,19 @@
     Show JSON Data
    </button>
 
-   <!-- JSON Modal -->
-   <div class="modal" id="jsonModal">
+  <!-- JSON Modal -->
+  <div class="modal" id="jsonModal">
     <div class="modal-content">
-     <span class="close">
-      ×
-     </span>
-     <pre id="jsonDisplay"></pre>
-     <button id="copyJsonButton">
-      Copy JSON
-     </button>
+      <!-- Ensure class="close" is present -->
+      <span class="close">
+        ×
+      </span>
+      <pre id="jsonDisplay"></pre>
+      <button id="copyJsonButton">
+        Copy JSON
+      </button>
     </div>
-   </div>
+  </div>
 
    <!-- Create Command Button -->
    <button id="createCommand" title="Click to create the command and prompt to save as a JSON file.">
