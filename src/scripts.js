@@ -11,10 +11,7 @@
         gtag('js', new Date());
         gtag('config', 'G-FT7YJ8S06W');
 
-        // Function to toggle the sidebar
-        function toggleSidebar() {
-            document.body.classList.toggle('body-sidebar-open');
-        }
+
 
         // Get the context options element
         const contextOptions = document.getElementById('contextOptions');
@@ -47,10 +44,13 @@
                 return;
             }
 
+            // Filter out 'codebase' from the selected contexts
+            const filteredContexts = selectedContexts.filter(context => context !== 'codebase');
+
             const commandData = {
                 command_name: commandName,
                 prompt: commandPrompt,
-                context: selectedContexts,
+                context: filteredContexts, // Use the filtered contexts here
                 slashCommand: slashCommand,
                 note: commandNote
             };
@@ -175,10 +175,13 @@
                 return null;
             }
 
+            // Filter out 'codebase' from the selected contexts
+            const filteredContexts = selectedContexts.filter(context => context !== 'codebase');
+
             const commandData = {
                 command_name: commandName,
                 prompt: commandPrompt,
-                context: selectedContexts,
+                context: filteredContexts, // Use the filtered contexts here
                 slashCommand: slashCommand,
                 note: commandNote
             };
@@ -211,16 +214,7 @@
             modal.style.display = "none";
         }
 
-        // Close modal when clicked outside the modal
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-            var modal = document.getElementById('customCommandViewerModal');
-            if (event.target == modal) {
-            modal.style.display = 'none';
-            }
-        }
+
 
         // Function to copy JSON to clipboard
         function copyJsonToClipboard() {
@@ -291,6 +285,47 @@
             modal.style.display = 'none';
         }
         
-        // Close the modal if the user clicks outside of it
+        // Close modals when clicked outside of them
+        window.onclick = function(event) {
+            var jsonModal = document.getElementById('jsonModal');
+            var customCommandViewerModal = document.getElementById('customCommandViewerModal');
 
+            if (event.target == jsonModal) {
+                jsonModal.style.display = "none";
+            } else if (event.target == customCommandViewerModal) {
+                customCommandViewerModal.style.display = 'none';
+            }
+        }
 
+        // Function to close a given modal
+        function closeModal(modalId) {
+            var modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Attach close function to the close button of jsonModal
+        var jsonModalCloseBtn = document.querySelector("#jsonModal .close");
+        jsonModalCloseBtn.onclick = function() {
+            closeModal('jsonModal');
+        }
+
+        // Attach close function to the close button of customCommandViewerModal
+        var customCommandViewerModalCloseBtn = document.querySelector("#customCommandViewerModal .close");
+        customCommandViewerModalCloseBtn.onclick = function() {
+            closeModal('customCommandViewerModal');
+        }
+
+        // Function to toggle the sidebar
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active'); // Use the appropriate class that shows/hides the sidebar
+        }
+
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            //console.log('Before toggle, active class:', sidebar.classList.contains('active'));
+            sidebar.classList.toggle('active'); // Use the appropriate class that shows/hides the sidebar
+            //console.log('After toggle, active class:', sidebar.classList.contains('active'));
+        }

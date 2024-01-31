@@ -168,6 +168,11 @@
             transform: translateX(0);
         }
 
+        /* Styles for the sidebar when active class is present */
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
         /* Styles for the modal */
         .modal {
             display: none;
