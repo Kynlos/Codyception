@@ -13,7 +13,7 @@ Welcome to Codyception, a web-based tool designed for creating custom commands f
 - [Additional Features](#additional-features)
 
 ## Accessing Codyception
-To access Codyception, visit the URL provided by the administrator or the person who shared the tool with you. Ensure you are using a modern web browser for the best experience.
+To access Codyception, visit the [the Codyception website](https://cody.kynlo.co.uk). Ensure you are using a modern web browser for the best experience.
 
 ## Creating Commands
 1. **Select Pre-made Command (Optional):** Use the dropdown menu to select a pre-made command as a starting point.
