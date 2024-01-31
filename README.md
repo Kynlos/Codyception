@@ -3,7 +3,7 @@
 Codyception is a web-based tool designed to streamline the process of creating custom commands for the Cody AI by Sourcegraph. This intuitive interface allows users to define command names, prompts, and context options with ease, and even select from pre-made commands crafted by Kynlo.
 
 ## User Manual
-- [Codyception User Manual](#codyception-user-manual)
+- [Codyception User Manual](https://github.com/Kynlos/Codyception/blob/main/USER-GUIDE.md)
 
 ## Features
 
