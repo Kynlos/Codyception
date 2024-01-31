@@ -189,7 +189,7 @@
   <div class="modal" id="jsonModal">
     <div class="modal-content">
       <!-- Ensure class="close" is present -->
-      <span class="close">
+      <span class="close" onclick="document.getElementById('jsonModal').style.display='none'">
         ×
       </span>
       <pre id="jsonDisplay"></pre>
@@ -198,6 +198,14 @@
       </button>
     </div>
   </div>
+  
+  <script>
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        document.getElementById('jsonModal').style.display = 'none';
+      }
+    });
+  </script>
 
    <!-- Create Command Button -->
    <button id="createCommand" title="Click to create the command and prompt to save as a JSON file.">
