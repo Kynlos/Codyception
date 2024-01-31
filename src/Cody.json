@@ -1,13 +1,5 @@
 {
   "commands": {
-    "testcommand": {
-      "description": "testcommand",
-      "prompt": "PROMPT HERE",
-      "context": {
-        "codebase": true,
-        "selection": true
-      }
-    },
     "explain-code-flow": {
       "description": "explain-code-flow",
       "prompt": "Explain the logical flow of the code, focusing on how each section contributes to the overall functionality. Assume the audience is an experienced programmer.",
