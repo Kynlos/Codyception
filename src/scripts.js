@@ -106,30 +106,68 @@
         window.addEventListener('load', populateDropdown);
 
         // Function to fill the form with selected command data
+
         function fillForm() {
             const selectedCommand = document.getElementById('premadeCommands').value;
 
-            fetch('Cody.json')
-                .then(response => response.json())
-                .then(data => {
-                    const selectedCommandData = data.commands[selectedCommand];
+            $(document).ready(function() {
+                // Fetch and populate the dropdown with commands from Cody.json
+                fetch('Cody.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const commandsData = data.commands; // Store the commands data globally
+                        const dropdown = document.getElementById('premadeCommands');
+            
+                        Object.keys(commandsData).forEach(commandName => {
+                            const option = document.createElement('option');
+                            option.value = commandName;
+                            option.text = commandName;
+                            dropdown.add(option);
+                        });
+            
+                        // Initialize Select2 on the select element
+                        $('.select2-searchable').select2({
+                            placeholder: "Type to search commands...",
+                            allowClear: true
+                        });
+            
+                        // Event listener for when an item is selected from the Select2 dropdown
+                        $('#premadeCommands').on('select2:select', function(event) {
+                            const commandKey = event.params.data.id;
+                            const commandData = commandsData[commandKey];
+            
+                            // Populate the input fields with the selected command data
+                            $('#commandName').val(commandKey);
+                            $('#commandPrompt').val(commandData.prompt);
+                            $('#slashCommand').val(commandData.slashCommand || '');
+                            $('#commandNote').val(commandData.note || '');
+            
+                            // Clear previously highlighted context options
+                            $('.context-option').removeClass('selected');
+            
+                            // Highlight the context options based on the selected command data
+                            if (commandData.context) {
+                                commandData.context.forEach(contextKey => {
+                                    $(`.context-option[data-value="${contextKey}"]`).addClass('selected');
+                                });
+                            }
+                        });
+            
+                        // Event listener for when the Select2 dropdown is opened
+                        $('#premadeCommands').on('select2:open', function() {
+                            // Wait for the search box to be displayed
+                            setTimeout(function() {
+                                // Focus the search box within the dropdown
+                                if ($('.select2-search__field').length) {
+                                    $('.select2-search__field')[0].focus();
+                                }
+                            }, 0);
+                        });
+                    })
+                    .catch(error => console.error('Error loading Cody.json:', error));
+            });
+        }            
 
-                    document.getElementById('commandName').value = selectedCommand;
-                    document.getElementById('commandPrompt').value = selectedCommandData.prompt;
-
-                    contextOptionElements.forEach(option => option.classList.remove('selected'));
-
-                    selectedContexts = [];
-                    Object.keys(selectedCommandData.context).forEach(contextValue => {
-                        const option = contextOptionElements.find(option => option.getAttribute('data-value') === contextValue);
-                        if (option) {
-                            option.classList.add('selected');
-                            selectedContexts.push(contextValue);
-                        }
-                    });
-                })
-                .catch(error => console.error('Error fetching Cody.json:', error));
-        }
 
         // Function to toggle dark mode
         function toggleDarkMode() {
@@ -164,6 +202,7 @@
         });
 
         // Function to construct command data
+
         function constructCommandData() {
             const commandName = document.getElementById('commandName').value.trim();
             const commandPrompt = document.getElementById('commandPrompt').value.trim();
@@ -175,19 +214,23 @@
                 return null;
             }
 
-            // Filter out 'codebase' from the selected contexts
-            const filteredContexts = selectedContexts.filter(context => context !== 'codebase');
+            // Get the context options element
+            const contextOptions = document.getElementById('contextOptions');
+            const selectedContexts = Array.from(contextOptions.getElementsByClassName('context-option'))
+                .filter(option => option.classList.contains('selected'))
+                .map(option => option.getAttribute('data-value'));
 
             const commandData = {
                 command_name: commandName,
                 prompt: commandPrompt,
-                context: filteredContexts, // Use the filtered contexts here
+                context: selectedContexts,
                 slashCommand: slashCommand,
                 note: commandNote
             };
 
             return commandData;
         }
+        
 
         // Function to show modal with JSON data
         function showModalWithJson(jsonData) {
@@ -329,3 +372,78 @@
             sidebar.classList.toggle('active'); // Use the appropriate class that shows/hides the sidebar
             //console.log('After toggle, active class:', sidebar.classList.contains('active'));
         }
+
+
+
+
+        // Function to populate the dropdown menu
+// Global variable to store the commands data
+var commandsData = {};
+
+function populatePremadeCommandsList() {
+    const dropdown = document.getElementById('premadeCommands');
+
+    fetch('Cody.json')
+        .then(response => response.json())
+        .then(data => {
+            commandsData = data.commands; // Store the commands data globally
+            Object.keys(commandsData).forEach(commandName => {
+                const option = document.createElement('option');
+                option.value = commandName;
+                option.text = commandName;
+                dropdown.add(option);
+            });
+
+            // Initialize Select2 on the select element
+            $('.select2-searchable').select2({
+                placeholder: "Type to search commands...",
+                allowClear: true
+            });
+
+            // Event listener for when an item is selected from the Select2 dropdown
+            $('#premadeCommands').on('select2:select', function(event) {
+                // Retrieve the selected command's data from the event
+                const commandKey = event.params.data.id;
+                const commandData = commandsData[commandKey];
+
+                // Populate the input fields with the selected command data
+                $('#commandName').val(commandKey);
+                $('#commandPrompt').val(commandData.prompt);
+                // Check if 'slashCommand' and 'note' exist in the JSON data and populate them if they do
+                $('#slashCommand').val(commandData.slashCommand || '');
+                $('#commandNote').val(commandData.note || '');
+
+                // Clear previously highlighted context options
+                $('.context-option').removeClass('selected');
+
+                // Highlight the context options based on the selected command data
+                let contextArray = [];
+                if (commandData.context) {
+                    Object.keys(commandData.context).forEach(contextKey => {
+                        if (commandData.context[contextKey]) {
+                            $(`.context-option[data-value="${contextKey}"]`).addClass('selected');
+                            contextArray.push(contextKey); // Add the context key to the array
+                        }
+                    });
+                }
+            
+            });
+
+            // Event listener for when the Select2 dropdown is opened
+            $('#premadeCommands').on('select2:open', function() {
+                // Wait for the search box to be displayed
+                setTimeout(function() {
+                    // Focus the search box within the dropdown
+                    if ($('.select2-search__field').length) {
+                        $('.select2-search__field')[0].focus();
+                    }
+                }, 0);
+            });
+        })
+        .catch(error => console.error('Error loading Cody.json:', error));
+}
+
+// Call this function on page load or when the commands list is ready
+document.addEventListener('DOMContentLoaded', populatePremadeCommandsList);
+// Event listener for the dropdown change event
+document.getElementById('premadeCommands').addEventListener('change', fillForm);

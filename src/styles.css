@@ -73,19 +73,7 @@
             background-color: #4cae4c;
         }
 
-        /* Styles for the context option and #premadeCommands */
-        .context-option,
-        #premadeCommands {
-            color: #333; 
-            background-color: inherit;
-        }
-
-        /* Dark mode styles for the context option and #premadeCommands */
-        .dark-mode .context-option,
-        .dark-mode #premadeCommands {
-            color: white; 
-            background-color: #333; 
-        }
+        
 
         /* Styles for the context option */
         .context-option {
@@ -298,3 +286,64 @@
             color: #ff8533; 
             text-decoration: underline; 
         }
+
+
+/* Light theme styles for Select2 */
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple {
+  background-color: #fff; /* Light background for the dropdown */
+  border: 1px solid #aaa; /* Light border color */
+  color: #000000; /* Dark text color */
+  margin-top: 15px; /* Add padding above the dropdown */
+}
+
+.select2-container--default .select2-selection__arrow {
+  top: 20px; /* Adjust the value to position the arrow below the dropdown */
+}
+
+.select2-dropdown {
+  background-color: #fff; /* Light background for the dropdown options */
+  border: 1px solid #aaa; /* Light border color */
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: #eaeaea; /* Light background for highlighted option */
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #000000; /* Dark text color for light mode */
+  line-height: 28px;
+}
+
+/* Dark theme styles for Select2 when .dark-mode class is active */
+body.dark-mode .select2-container--default .select2-selection--single,
+body.dark-mode .select2-container--default .select2-selection--multiple {
+  background-color: #333; /* Dark background for the dropdown */
+  border: 1px solid #555; /* Darker border color */
+  color: #e0e0e0; /* Lighter grey text color, adjusted for better visibility */
+  margin-top: 15px; /* Add padding above the dropdown */
+  margin-bottom: 15px; /* Add padding above the dropdown */
+}
+
+body.dark-mode .select2-container--default .select2-selection__arrow {
+  top: 20px; /* Adjust the value to position the arrow below the dropdown */
+}
+
+body.dark-mode .select2-dropdown {
+  background-color: #333; /* Dark background for the dropdown options */
+  border: 1px solid #555; /* Darker border color */
+}
+
+body.dark-mode .select2-container--default .select2-results__option {
+  color: #ffffff; /* Lighter grey text color for dropdown options, adjusted for better visibility */
+}
+
+body.dark-mode .select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: #444; /* Darker background for highlighted option */
+  color: #ffffff; /* White text color for highlighted option, for maximum contrast */
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #ffffff;
+  line-height: 28px;
+}
