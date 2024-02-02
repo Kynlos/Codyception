@@ -297,7 +297,9 @@ body.dark-mode .select2-container--default .select2-selection--single .select2-s
   line-height: 28px;
 }
 
-
+#commandName {
+    margin-top: 15px;
+}
 
 /* Styles for the sidebar */
 .sidebar {
