@@ -38,6 +38,9 @@
             color: #fff;
         }
 
+        commaneName {
+            margin-top: 15px;
+        }
         /* Styles for the h1 heading */
         h1 {
             font-weight: 600;
@@ -235,6 +238,8 @@
 /* Light theme styles for Select2 */
 .select2-container--default .select2-selection--single,
 .select2-container--default .select2-selection--multiple {
+  font-family: 'Open Sans', sans-serif;
+  font-size: inherit;
   background-color: #fff; /* Light background for the dropdown */
   border: 1px solid #aaa; /* Light border color */
   color: #000; /* Dark text color for light mode */
@@ -270,6 +275,8 @@
 /* Dark theme styles for Select2 when .dark-mode class is active */
 body.dark-mode .select2-container--default .select2-selection--single,
 body.dark-mode .select2-container--default .select2-selection--multiple {
+  font-family: 'Open Sans', sans-serif;
+  font-size: inherit;
   background-color: #333; /* Dark background for the dropdown */
   border: 2px solid #555; /* Darker border color */
   color: #e0e0e0; /* Lighter grey text color, adjusted for better visibility */
@@ -297,9 +304,7 @@ body.dark-mode .select2-container--default .select2-selection--single .select2-s
   line-height: 28px;
 }
 
-#commandName {
-    margin-top: 15px;
-}
+
 
 /* Styles for the sidebar */
 .sidebar {
@@ -352,4 +357,39 @@ body.dark-mode .select2-container--default .select2-selection--single .select2-s
         width: 100%; 
     }
     
+}
+
+#commandName {
+    margin-top: 15px;
+}
+/* Light theme styles for the textarea */
+#commandPrompt {
+    width: 100%;
+    height: 100px; /* Adjust as needed */
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  /* Dark theme styles for textarea when .dark-mode class is active */
+  body.dark-mode #commandPrompt {
+    background-color: #333; /* Dark background for textarea */
+    border: 1px solid #555; /* Darker border color */
+    color: #e0e0e0; /* Lighter grey text color, adjusted for better visibility */
+  }
+  
+  body.dark-mode #commandPrompt::placeholder {
+    color: #aaa; /* Lighter placeholder color in dark mode */
+  }
+  
+
+
+
+  body.dark-mode .modal-content {
+    background-color: #333; /* Dark background for the modal content */
+    border-color: #555; /* Darker border color */
+    color: #fff; /* Lighter text color for better visibility */
 }
