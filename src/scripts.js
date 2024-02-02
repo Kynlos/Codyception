@@ -363,85 +363,129 @@
         // Function to toggle the sidebar
         function toggleSidebar() {
             var sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('active'); // Use the appropriate class that shows/hides the sidebar
+            var content = document.getElementById('content'); // Assuming there's an element with this ID
+            if (sidebar) {
+                sidebar.classList.toggle('active');
+                if (content) {
+                    content.classList.toggle('content-shift');
+                }
+                //console.log("Sidebar toggle clicked.");
+            } else {
+                console.error("Sidebar element not found.");
+            }
         }
 
-        function toggleSidebar() {
+        // Add a new function to close the sidebar
+        function closeSidebar() {
             var sidebar = document.getElementById('sidebar');
-            //console.log('Before toggle, active class:', sidebar.classList.contains('active'));
-            sidebar.classList.toggle('active'); // Use the appropriate class that shows/hides the sidebar
-            //console.log('After toggle, active class:', sidebar.classList.contains('active'));
+            if (sidebar && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
         }
 
+        // Event listener to close sidebar when clicking outside
+        document.addEventListener('click', function(event) {
+            var sidebar = document.getElementById('sidebar');
+            var hamburger = document.querySelector('.hamburger-menu');
+            if (sidebar && !event.target.closest('#sidebar') && sidebar.classList.contains('active')) {
+                // Check if the click is on the hamburger menu
+                if (hamburger && hamburger.contains(event.target)) {
+                    // Click is on the hamburger menu, do nothing
+                    return;
+                }
+                // Otherwise, close the sidebar
+                closeSidebar();
+            }
+        });
+
+        // Event listener to close sidebar on ESC key press
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeSidebar();
+            }
+        });
 
 
 
-        // Function to populate the dropdown menu
-// Global variable to store the commands data
-var commandsData = {};
 
-function populatePremadeCommandsList() {
-    const dropdown = document.getElementById('premadeCommands');
 
-    fetch('Cody.json')
-        .then(response => response.json())
-        .then(data => {
-            commandsData = data.commands; // Store the commands data globally
-            Object.keys(commandsData).forEach(commandName => {
-                const option = document.createElement('option');
-                option.value = commandName;
-                option.text = commandName;
-                dropdown.add(option);
-            });
 
-            // Initialize Select2 on the select element
-            $('.select2-searchable').select2({
-                placeholder: "Type to search commands...",
-                allowClear: true
-            });
 
-            // Event listener for when an item is selected from the Select2 dropdown
-            $('#premadeCommands').on('select2:select', function(event) {
-                // Retrieve the selected command's data from the event
-                const commandKey = event.params.data.id;
-                const commandData = commandsData[commandKey];
+        // Global variable to store the commands data
+        var commandsData = {};
 
-                // Populate the input fields with the selected command data
-                $('#commandName').val(commandKey);
-                $('#commandPrompt').val(commandData.prompt);
-                // Check if 'slashCommand' and 'note' exist in the JSON data and populate them if they do
-                $('#slashCommand').val(commandData.slashCommand || '');
-                $('#commandNote').val(commandData.note || '');
+        function populatePremadeCommandsList() {
+            const dropdown = document.getElementById('premadeCommands');
 
-                // Clear previously highlighted context options
-                $('.context-option').removeClass('selected');
+            // Create an empty option for the placeholder
+            const placeholderOption = document.createElement('option');
+            placeholderOption.value = '';
+            placeholderOption.text = 'Type to show commands...';
+            placeholderOption.disabled = true; // Disable the option so it can't be selected
+            placeholderOption.selected = true; // Make it the selected option by default
+            placeholderOption.hidden = true; // Hide the option so it doesn't show in the dropdown list
+            dropdown.add(placeholderOption);
 
-                // Highlight the context options based on the selected command data
-                let contextArray = [];
-                if (commandData.context) {
-                    Object.keys(commandData.context).forEach(contextKey => {
-                        if (commandData.context[contextKey]) {
-                            $(`.context-option[data-value="${contextKey}"]`).addClass('selected');
-                            contextArray.push(contextKey); // Add the context key to the array
+            fetch('Cody.json')
+                .then(response => response.json())
+                .then(data => {
+                    commandsData = data.commands; // Store the commands data globally
+                    Object.keys(commandsData).forEach(commandName => {
+                        const option = document.createElement('option');
+                        option.value = commandName;
+                        option.text = commandName;
+                        dropdown.add(option);
+                    });
+
+                    // Initialize Select2 on the select element
+                    $('.select2-searchable').select2({
+                        placeholder: "Type to show commands...",
+                        allowClear: true
+                    });
+
+                    // Event listener for when an item is selected from the Select2 dropdown
+                    $('#premadeCommands').on('select2:select', function(event) {
+                        // Retrieve the selected command's data from the event
+                        const commandKey = event.params.data.id;
+                        const commandData = commandsData[commandKey];
+
+                        // Populate the input fields with the selected command data
+                        $('#commandName').val(commandKey);
+                        $('#commandPrompt').val(commandData.prompt);
+                        // Check if 'slashCommand' and 'note' exist in the JSON data and populate them if they do
+                        $('#slashCommand').val(commandData.slashCommand || '');
+                        $('#commandNote').val(commandData.note || '');
+
+                        // Clear previously highlighted context options
+                        $('.context-option').removeClass('selected');
+
+                        // Highlight the context options based on the selected command data
+                        if (commandData.context) {
+                            Object.keys(commandData.context).forEach(contextKey => {
+                                if (commandData.context[contextKey]) {
+                                    $(`.context-option[data-value="${contextKey}"]`).addClass('selected');
+                                }
+                            });
                         }
                     });
-                }
-            
-            });
 
-            // Event listener for when the Select2 dropdown is opened
-            $('#premadeCommands').on('select2:open', function() {
-                // Wait for the search box to be displayed
-                setTimeout(function() {
-                    // Focus the search box within the dropdown
-                    if ($('.select2-search__field').length) {
-                        $('.select2-search__field')[0].focus();
-                    }
-                }, 0);
-            });
-        })
-        .catch(error => console.error('Error loading Cody.json:', error));
-}
+                    // Event listener for when the Select2 dropdown is opened
+                    $('#premadeCommands').on('select2:open', function() {
+                        // Wait for the search box to be displayed
+                        setTimeout(function() {
+                            // Focus the search box within the dropdown
+                            if ($('.select2-search__field').length) {
+                                $('.select2-search__field')[0].focus();
+                            }
+                        }, 0);
+                    });
+                })
+                .catch(error => console.error('Error loading Cody.json:', error));
+        }
+
+// Call this function on page load or when the commands list is ready
+document.addEventListener('DOMContentLoaded', populatePremadeCommandsList);
+
 
 // Call this function on page load or when the commands list is ready
 document.addEventListener('DOMContentLoaded', populatePremadeCommandsList);

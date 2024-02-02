@@ -103,63 +103,7 @@
             font-size: 24px;
         }
 
-        /* Styles for the sidebar */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 250px; 
-            height: 100%;
-            background-color: #333; 
-            color: #fff;
-            transition: transform 0.3s ease;
-            transform: translateX(-100%);
-            z-index: 1000;
-        }
-
-        /* Styles for the sidebar navigation */
-        .sidebar-nav {
-            display: flex;
-            flex-direction: column;
-            padding-top: 20px; 
-        }
-
-        /* Styles for the sidebar link */
-        .sidebar-link {
-            padding: 10px 20px;
-            text-decoration: none;
-            color: #fff;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-
-        /* Hover styles for the sidebar link */
-        .sidebar-link:hover {
-            background-color: #5cb85c; 
-        }
-
-        /* Styles for the sidebar link icon */
-        .sidebar-link i {
-            margin-right: 8px;
-        }
-
-        /* Responsive adjustments for the sidebar */
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                transform: translateY(-100%);
-            }
-        }
-
-        /* Styles for the sidebar when body-sidebar-open class is present */
-        .body-sidebar-open .sidebar {
-            transform: translateX(0);
-        }
-
-        /* Styles for the sidebar when active class is present */
-        .sidebar.active {
-            transform: translateX(0);
-        }
+        
 
         /* Styles for the modal */
         .modal {
@@ -293,12 +237,19 @@
 .select2-container--default .select2-selection--multiple {
   background-color: #fff; /* Light background for the dropdown */
   border: 1px solid #aaa; /* Light border color */
-  color: #000000; /* Dark text color */
+  color: #000; /* Dark text color for light mode */
   margin-top: 15px; /* Add padding above the dropdown */
 }
 
-.select2-container--default .select2-selection__arrow {
-  top: 20px; /* Adjust the value to position the arrow below the dropdown */
+/* Common styles for Select2 arrow */
+.select2-container--default .select2-selection--single .select2-selection__arrow,
+.select2-container--default .select2-selection--multiple .select2-selection__arrow {
+    position: absolute;
+    top: 70%; /* Center vertically */
+    transform: translateY(-50%); /* Center the arrow vertically */
+    /* Ensure there's enough height for the arrow */
+    height: 20px; /* Adjust as needed */
+    width: 20px; /* Adjust as needed */
 }
 
 .select2-dropdown {
@@ -308,10 +259,11 @@
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
   background-color: #eaeaea; /* Light background for highlighted option */
+  color: #000; /* Dark text color for highlighted option, for better visibility */
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-  color: #000000; /* Dark text color for light mode */
+  color: #000; /* Dark text color for light mode */
   line-height: 28px;
 }
 
@@ -319,31 +271,82 @@
 body.dark-mode .select2-container--default .select2-selection--single,
 body.dark-mode .select2-container--default .select2-selection--multiple {
   background-color: #333; /* Dark background for the dropdown */
-  border: 1px solid #555; /* Darker border color */
+  border: 2px solid #555; /* Darker border color */
   color: #e0e0e0; /* Lighter grey text color, adjusted for better visibility */
   margin-top: 15px; /* Add padding above the dropdown */
-  margin-bottom: 15px; /* Add padding above the dropdown */
 }
 
-body.dark-mode .select2-container--default .select2-selection__arrow {
-  top: 20px; /* Adjust the value to position the arrow below the dropdown */
-}
 
 body.dark-mode .select2-dropdown {
   background-color: #333; /* Dark background for the dropdown options */
   border: 1px solid #555; /* Darker border color */
 }
 
-body.dark-mode .select2-container--default .select2-results__option {
-  color: #ffffff; /* Lighter grey text color for dropdown options, adjusted for better visibility */
-}
-
 body.dark-mode .select2-container--default .select2-results__option--highlighted[aria-selected] {
   background-color: #444; /* Darker background for highlighted option */
-  color: #ffffff; /* White text color for highlighted option, for maximum contrast */
+  color: #fff; /* White text color for highlighted option, for maximum contrast */
 }
 
-.select2-container--default .select2-selection--single .select2-selection__rendered {
-  color: #ffffff;
+body.dark-mode .select2-container--default .select2-results__option {
+  color: #fff; /* Lighter grey text color for dropdown options, adjusted for better visibility */
+}
+
+body.dark-mode .select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #e0e0e0; /* Lighter grey text color, adjusted for better visibility */
   line-height: 28px;
+}
+
+
+
+/* Styles for the sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; 
+    height: 100%;
+    background-color: #333; 
+    color: #fff;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%); 
+    z-index: 1000;
+}
+
+/* Styles for the sidebar when active class is present */
+.sidebar.active {
+    transform: translateX(0); /* Slide in */
+}
+
+/* Styles for the sidebar navigation */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px; 
+}
+
+/* Styles for the sidebar link */
+.sidebar-link {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover styles for the sidebar link */
+.sidebar-link:hover {
+    background-color: #5cb85c; 
+}
+
+/* Styles for the sidebar link icon */
+.sidebar-link i {
+    margin-right: 8px;
+}
+
+/* Responsive adjustments for the sidebar */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; 
+    }
+    
 }
