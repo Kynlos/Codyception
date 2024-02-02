@@ -274,6 +274,7 @@ body.dark-mode .select2-container--default .select2-selection--multiple {
   border: 2px solid #555; /* Darker border color */
   color: #e0e0e0; /* Lighter grey text color, adjusted for better visibility */
   margin-top: 15px; /* Add padding above the dropdown */
+  margin-bottom: 15px; /* Add padding below the dropdown */
 }
 
 
