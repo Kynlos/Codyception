@@ -1,221 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>JSON Viewer</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Font Awesome CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-  <style>
-    body {
-      background-color: #343a40; /* Dark mode background color */
-      color: #ffffff; /* Dark mode text color */
-      margin-top: 50px;
-    }
-    .container {
-      border-radius: 15px; /* Rounded corners for the container */
-      overflow: hidden; /* Ensure rounded corners are applied */
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow for a subtle lift */
-    }
-    table {
-      border-radius: 15px; /* Rounded corners for the table */
-      overflow: hidden; /* Ensure rounded corners are applied */
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .pagination {
-      margin-top: 15px;
-    }
-    .page-link {
-      color: #ffffff; /* Dark mode text color for pagination links */
-      background-color: #495057; /* Dark mode background color for pagination links */
-      border-color: #495057; /* Dark mode border color for pagination links */
-    }
-    .page-link:hover {
-      background-color: #6c757d; /* Dark mode background color on hover for pagination links */
-      border-color: #6c757d; /* Dark mode border color on hover for pagination links */
-    }
-    .disabled {
-      cursor: not-allowed;
-      pointer-events: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Browser</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <!--Darkmode.js-->
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget() {
+            new Darkmode().showWidget();
+        }
+        window.addEventListener('load', addDarkmodeWidget);
+    </script>
+    <style>
+        /* Style for the fixed navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            /* Ensure the navbar has a background color */
+            z-index: 20;
+            /* Ensure the header has a higher z-index than the social links bar */
+        }
+    </style>
 </head>
-<body>
 
-<div class="container">
-  <!-- Search Input -->
-  <div class="form-group">
-    <label for="search" style="color: #ffffff;">Search:</label>
-    <input type="text" class="form-control" id="search" oninput="searchTable()" style="color: #ffffff; background-color: #495057;">
-  </div>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.php" class="text-xl font-bold text-gray-800">Codyception</a>
+                </div>
+                <div class="flex items-center">
+                    <a href="dashboard.php" class="mx-2 text-gray-600 hover:text-gray-800">Dashboard</a>
 
-  <!-- Items Per Page Dropdown -->
-  <div class="form-group">
-    <label for="itemsPerPage" style="color: #ffffff;">Items per Page:</label>
-    <select class="form-control" id="itemsPerPage" onchange="changeItemsPerPage()" style="color: #ffffff; background-color: #495057;">
-      <option value="10">10</option>
-      <option value="20">20</option>
-      <option value="50">50</option>
-    </select>
-  </div>
+                    <a href="profile.php" class="mx-2 text-gray-600 hover:text-gray-800">Profile</a>
+                    <a href="logout.php" class="mx-2 text-gray-600 hover:text-gray-800">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-  <!-- Pagination Controls -->
-  <nav aria-label="Page navigation">
-    <ul class="pagination justify-content-center">
-      <li class="page-item" id="prevPage">
-        <a class="page-link" href="#" aria-label="Previous" onclick="changePage(-1)">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li class="page-item" id="nextPage">
-        <a class="page-link" href="#" aria-label="Next" onclick="changePage(1)">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+    <main class="container mx-auto pt-10"></main>
+    <!-- JSON Viewer with Pagination -->
+    <div class="w-full my-8 mx-auto max-w-7xl">
+        <div class="search-bar bg-white p-4 rounded-md mb-4">
+            <i class="fas fa-search search-icon text-gray-600"></i>
+            <input type="text" id="liveSearch" class="search-input w-full border p-2 rounded-md"
+                placeholder="Search...">
+        </div>
 
-  <table class="table table-bordered table-dark">
-    <thead class="thead-dark">
-      <tr>
-        <th>Command</th>
-        <th>Description</th>
-        <th>Prompt</th>
-        <th>Context</th>
-      </tr>
-    </thead>
-    <tbody id="jsonTableBody"></tbody>
-  </table>
-</div>
+        <!-- Pagination buttons moved above the table with padding below -->
+        <div id="pagination" class="flex justify-between items-center mt-4 space-x-2 mb-4"></div>
 
-<!-- Bootstrap JS and Popper.js -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <div class="flex justify-between items-center mb-4">
+            <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                <thead class="bg-gray-800 text-white">
+                    <tr>
+                        <th class="py-3 px-4 text-left">Prompt Name</th>
+                        <th class="py-3 px-4 text-left">Prompt</th>
+                        <th class="py-3 px-4 text-left">Context</th>
+                        <!-- New column for Save button -->
+                        <th class="py-3 px-4 text-left">Save</th>
+                    </tr>
+                </thead>
+                <tbody id="jsonTableBody">
+                    <!-- Table body content goes here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </main>
+    <!-- Sticky Footer -->
+
+    <style>
+        body {
+            padding-bottom: 80px;
+            /* Adjust the value to match the height of your footer */
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 9999;
+            /* Ensure the footer is above other content */
+        }
+    </style>
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto px-6 text-center">
+            &copy; <?php echo date('Y'); ?> Codyception. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/twbs-pagination@1.4.2/dist/jquery.twbsPagination.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let jsonData;
+            let pageSize = 10;
+            let currentPage = 1;
+            let debounceTimer;
+
+            // Function to copy text to clipboard
+            function copyToClipboard(text) {
+                const dummy = document.createElement('textarea');
+                document.body.appendChild(dummy);
+                dummy.value = text;
+                dummy.select();
+                document.execCommand('copy');
+                document.body.removeChild(dummy);
+            }
+
+            // Function to handle table row click and copy JSON data
+            function handleRowClick(key) {
+                const dataToCopy = JSON.stringify(jsonData.commands[key], null, 2);
+                copyToClipboard(dataToCopy);
+                alert('Copied: ' + dataToCopy); // You can replace this with a more subtle notification
+            }
+
+            // Function to handle saving the command to the user's account
+            function saveToAccount(key) {
+                // Implement saving logic here
+                alert('Command saved to account: ' + key);
+            }
+
+            // Function to update pagination link classes
+            function updatePaginationLinkClasses() {
+                document.querySelectorAll('#pagination button').forEach(function (button) {
+                    button.classList.add('bg-blue-500', 'text-white', 'px-4', 'py-2', 'rounded-md', 'hover:bg-blue-600');
+                });
+            }
+
+            // Function to paginate JSON data and load it into the table
+            function paginateAndLoad(commands, startIdx, endIdx) {
+                const tableBody = document.getElementById('jsonTableBody');
+                tableBody.innerHTML = '';
+
+                // Check if commands is iterable
+                if (!commands || !Array.isArray(commands) || commands.length === 0) {
+                    const noResultsRow = document.createElement('tr');
+                    noResultsRow.innerHTML = `<td colspan="4" class="border p-2 text-center">No results found.</td>`;
+                    tableBody.appendChild(noResultsRow);
+                    return;
+                }
+
+                // Populate the table with data
+                for (let i = startIdx; i < endIdx && i < commands.length; i++) {
+                    const [key, value] = commands[i];
+                    const contextKeys = Object.keys(value.context);
+                    const contextString = contextKeys.join(', ');
+
+                    const row = document.createElement('tr');
+                    row.setAttribute('data-key', key);
+                    row.innerHTML = `
+                        <td class="border p-2">${key}</td>
+                        <td class="border p-2">${value.prompt}</td>
+                        <td class="border p-2">${contextString}</td>
+                        <td class="border p-2">
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" onclick="saveToAccount('${key}')">Save</button>
+                        </td>
+                    `;
+                    row.addEventListener('click', function () { handleRowClick(key); });
+                    row.addEventListener('mouseover', function () { row.classList.add('bg-gray-200'); });
+                    row.addEventListener('mouseout', function () { row.classList.remove('bg-gray-200'); });
+                    tableBody.appendChild(row);
+                }
+
+                // Update pagination link classes
+                updatePaginationLinkClasses();
+            }
+
+            // Fetch JSON data from Cody.json and then load it into the table
+            fetch('Cody.json')
+                .then(response => response.json())
+                .then(data => {
+                    jsonData = data;
+                    const commands = Object.entries(jsonData.commands);
+                    const totalPages = Math.ceil(commands.length / pageSize);
+                    createPaginationButtons(totalPages);
+                    paginateAndLoad(commands, 0, pageSize); // Initial page size set to 10 commands
+                })
+                .catch(error => console.error('Error fetching Cody.json:', error));
+
+            // Function to create pagination buttons
+            function createPaginationButtons(totalPages) {
+                const paginationContainer = document.getElementById('pagination');
+                paginationContainer.innerHTML = '';
+
+                // Previous button
+                const prevButton = document.createElement('button');
+                prevButton.textContent = 'Prev';
+                prevButton.classList.add('bg-blue-500', 'text-white', 'px-4', 'py-2', 'rounded-md', 'hover:bg-blue-600');
+                prevButton.addEventListener('click', function () {
+                    if (currentPage > 1) {
+                        currentPage--;
+                        const startIdx = (currentPage - 1) * pageSize;
+                        const endIdx = startIdx + pageSize;
+                        paginateAndLoad(Object.entries(jsonData.commands), startIdx, endIdx);
+                    }
+                });
+                paginationContainer.appendChild(prevButton);
+
+                // Next button
+                const nextButton = document.createElement('button');
+                nextButton.textContent = 'Next';
+                nextButton.classList.add('bg-blue-500', 'text-white', 'px-4', 'py-2', 'rounded-md', 'hover:bg-blue-600');
+                nextButton.addEventListener('click', function () {
+                    const totalPages = Math.ceil(Object.keys(jsonData.commands).length / pageSize);
+                    if (currentPage < totalPages) {
+                        currentPage++;
+                        const startIdx = (currentPage - 1) * pageSize;
+                        const endIdx = startIdx + pageSize;
+                        paginateAndLoad(Object.entries(jsonData.commands), startIdx, endIdx);
+                    }
+                });
+                paginationContainer.appendChild(nextButton);
+            }
+
+            // Function to filter commands based on the search term using regular expressions
+            function filterCommands(searchTerm) {
+                const regex = new RegExp(searchTerm, 'i'); // 'i' flag for case-insensitive matching
+                return Object.entries(jsonData.commands).filter(([key, value]) =>
+                    regex.test(value.prompt) ||
+                    regex.test(value.description)
+                );
+            }
+
+            // Function to handle live search with debouncing
+            function handleLiveSearch() {
+                const searchTerm = this.value.trim(); // Trim leading and trailing whitespace
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    const filteredCommands = filterCommands(searchTerm);
+                    const totalPages = Math.ceil(filteredCommands.length / pageSize);
+                    createPaginationButtons(totalPages);
+                    paginateAndLoad(filteredCommands, 0, pageSize);
+                }, 100); // Debounce delay of 300 milliseconds
+            }
+
+            // Event listener for live search input with debounce
+            document.getElementById('liveSearch').addEventListener('input', handleLiveSearch);
+        });
+    </script>
 
 
-<script>
-  // Additional functions for pagination, items per page, and search
-  var jsonData; // Variable to store the fetched JSON data
-  var currentPage = 1;
-  var itemsPerPage = 10; // Set the initial items per page to 10
-  var commandArray; // Declare commandArray here
-
-  // Function to fetch JSON data
-  async function fetchJsonData() {
-    try {
-      const response = await fetch('Cody.json'); // Replace with the actual path
-      const jsonData = await response.json();
-      return jsonData;
-    } catch (error) {
-      console.error('Error fetching JSON data:', error);
-    }
-  }
-
-  // Function to populate the table with JSON data
-  async function populateTable() {
-    jsonData = await fetchJsonData();
-    if (!jsonData || !jsonData.commands) {
-      console.error('Invalid JSON data. Expected "commands" property.');
-      return;
-    }
-
-    // Extract commands from the jsonData object
-    const commands = jsonData.commands;
-
-    // Convert commands object into an array
-    commandArray = Object.entries(commands).map(([command, details]) => ({
-      command,
-      ...details,
-    }));
-
-    // Apply pagination and items per page logic
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-
-    // Use slice to get the desired items for the current page
-    const filteredData = commandArray.slice(startIndex, endIndex);
-
-    // Display the filtered data in the table
-    var tableBody = document.getElementById('jsonTableBody');
-    tableBody.innerHTML = ''; // Clear existing rows
-    filteredData.forEach(function (item) {
-      var row = tableBody.insertRow();
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
-      var cell3 = row.insertCell(2);
-      var cell4 = row.insertCell(3);
-
-      cell1.innerHTML = item.command;
-      cell2.innerHTML = item.description;
-      cell3.innerHTML = item.prompt;
-      cell4.innerHTML = JSON.stringify(item.context);
-    });
-
-    // Update pagination controls
-    updatePagination();
-  }
-
-  // Update table based on selected items per page
-  function changeItemsPerPage() {
-    itemsPerPage = parseInt(document.getElementById('itemsPerPage').value);
-    currentPage = 1;
-    populateTable();
-  }
-
-  // Update table based on pagination
-  function updatePagination() {
-    document.getElementById('prevPage').classList.toggle('disabled', currentPage === 1);
-    document.getElementById('nextPage').classList.toggle('disabled', currentPage === Math.ceil(commandArray.length / itemsPerPage));
-  }
-
-  // Update table based on search input
-  function searchTable() {
-    var searchTerm = document.getElementById('search').value.toLowerCase();
-    const filteredData = commandArray.filter(function (item) {
-      return (
-        item.command.toLowerCase().includes(searchTerm) ||
-        item.description.toLowerCase().includes(searchTerm) ||
-        item.prompt.toLowerCase().includes(searchTerm) ||
-        JSON.stringify(item.context).toLowerCase().includes(searchTerm)
-      );
-    });
-
-    currentPage = 1;
-
-    // Display the filtered data in the table
-    var tableBody = document.getElementById('jsonTableBody');
-    tableBody.innerHTML = ''; // Clear existing rows
-    filteredData.forEach(function (item) {
-      var row = tableBody.insertRow();
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
-      var cell3 = row.insertCell(2);
-      var cell4 = row.insertCell(3);
-
-      cell1.innerHTML = item.command;
-      cell2.innerHTML = item.description;
-      cell3.innerHTML = item.prompt;
-      cell4.innerHTML = JSON.stringify(item.context);
-    });
-
-    // Update pagination controls
-    updatePagination();
-  }
-
-  // Change page function
-  function changePage(delta) {
-    currentPage += delta;
-    populateTable();
-  }
-
-  // Call the function to populate the table
-  populateTable();
-</script>
 
 </body>
+
 </html>
